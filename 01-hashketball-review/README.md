@@ -14,29 +14,34 @@
 
 ### How to make the most of the labs
 * RSPEC and TDD --f-f
-* please don't just keep guessing till all the lights turn green.
+* please don't just keep guessing til' all the lights turn green.
 
 
 ## SWBATS
-- [ ] Identify common data types in Ruby.
+- [ ] Identify common data types in Ruby
+- [ ] Use control flow to control a program's execution
 - [ ] Explain what these iterators do:
     - [ ] #each
     - [ ] #select
     - [ ] #map
     - [ ] #find
-- [ ] Create Methods
-    - [ ] basically allow us to organize our procedures
+- [ ] Create methods to organize code and reduce repetition
 
-### Data Types
+### Data Types/Primitives
 * Strings  - some data representing text
     * to_i
     * to_f
 * Integers - some data represting numbers
+* Nil
 * Boolean  - true or false
     * !!
+
+### Data Structures
 * Arrays
     * indices
     * how to access something.
+    * when order matters (e.g. lines)
+    * for storing data that is of the same type/structure
 * Hash - like a dictionary, where key is the word, value is the definition.
     * keys
     * values
