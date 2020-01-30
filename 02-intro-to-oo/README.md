@@ -3,10 +3,10 @@
 
 ## SWBATs
 - [x] Write methods to encapsulate behavior
-- [ ] Tell each other what the point of object oriented programming is
-- [ ] Make objects (instances)
+- [x] Tell each other what the point of object oriented programming is
+- [x] Make objects (instances)
 - [ ] Tell each other about `self`
-- [ ] attr_ macros, attr_accessor, attr_reader, attr_writer
+- [x] attr_ macros, att r_accessor, attr_reader, attr_writer
 - [ ] regular variables vs class variables vs instance variables
 - [ ] instance methods vs class methods
 
