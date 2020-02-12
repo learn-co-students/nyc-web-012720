@@ -13,37 +13,22 @@
 
 ## Notes
 
-#### Palindrome
+### Palindrome
 
+* poop
+* racecar
+* radar
+* taco cat
+* Never Odd Or Even 
+* a man a plan a canal panama
 
+* Red - Green - Refactor
+* Shameless Green
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  * poop
-  * racecar
-  * Never Odd Or Even 
-  * a man a plan a canal panama
-
-  * Shameless Green
-  * Red - Green - Refactor
-
-  * 4 Stages of Testing
+### 4 Stages of Testing
+1. setup
+2. exercise
+3. expectation
+4. teardown
  
+https://martinfowler.com/articles/practical-test-pyramid.html
