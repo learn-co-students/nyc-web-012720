@@ -1,0 +1,24 @@
+#index_img {
+  max-width: 150px;
+}
+
+#show_img {
+  max-width: 25%;
+}
+
+.index-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: center;
+}
+
+.index-tile {
+  border-radius: 25px;
+  margin: 15px;
+  padding: 15px;
+  box-shadow: 5px 5px lightblue;
+  background-color: lightgrey;
+}
+

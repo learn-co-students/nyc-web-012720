@@ -4,6 +4,7 @@ class CreateCarnivals < ActiveRecord::Migration
       t.string :name
       t.string :location
       t.integer :number_of_rides 
+      t.string :img_url 
     end 
   end
 end

@@ -1,0 +1,12 @@
+<h1>EDIT NEW CARNIVAL</h1>
+
+<form action="/carnivals/<%= @carnival.id %>" method="POST" >
+  <input type="hidden" name="_method" value="PATCH">
+  <input type="text" name="carnival[name]" value="<%= @carnival.name %>">
+  <input type="text" name="carnival[location]" value="<%= @carnival.location %>">
+  <input type="number" name="carnival[number_of_rides]" value="<%= @carnival.number_of_rides %>">
+
+  <input type="submit" value="EDIT CARNIVAL">
+</form>
+
+

@@ -1,9 +1,16 @@
 <h1>Carnival Show Page</h1>
 
 
-<h5><%= @carnival.name %></h5>
+<h2><%= @carnival.name %></h2>
+<marquee><img src="<%= @carnival.img_url %>" alt="<%= @carnival.name %>"> </marquee>
+
 <h5><%= @carnival.location %></h5>
 <h5><%= @carnival.number_of_rides %></h5>
 
 
 <a href="/carnivals">INDEX PAGE</a>
+
+<form action="/carnivals/<%= @carnival.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="DELETE" >
+</form>

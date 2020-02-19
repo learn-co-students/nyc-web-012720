@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20200219160534) do
     t.string  "name"
     t.string  "location"
     t.integer "number_of_rides"
+    t.string  "img_url"
   end
 
 end

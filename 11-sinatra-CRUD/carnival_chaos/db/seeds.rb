@@ -1,5 +1,6 @@
 
+images = ["https://store-images.s-microsoft.com/image/apps.26965.70148942172048741.4b318080-b066-42da-bbea-7cb8c24a3008.a0847f5f-3656-4605-9476-7291a75abfcd?mode=scale&q=90&h=720&w=1280", "https://lp-cms-production.imgix.net/image_browser/Trinidad-BlueDevil-Carnival.jpg?auto=format&fit=crop&q=40&sharp=10&vib=20&ixlib=react-8.6.4", "https://cdn.theatlantic.com/assets/media/img/photo/2011/03/carnival-2011/c01_06064780-1/original.jpg", "https://www.sandals.com/blog/content/images/2019/10/carnival-dominica-republic-yellow-costume-2.jpg", "https://www.gannett-cdn.com/presto/2019/10/29/USAT/fe2780e5-5a5d-421e-a890-7742a22a29c5-CarnSunrisePanorama02.jpg?width=2560", "https://asianabsolute.co.uk/wp-content/uploads/sites/5/2018/02/mask-1155808_1920-min.jpg", "https://s3.amazonaws.com/medias.photodeck.com/254b9efc-6a0e-49d6-97ac-4b658abb2834/HR-Fairground-CAstatefair-14Jul2015-694_large.jpg", "https://tapmag.com/wp-content/uploads/2016/12/Gib1.jpg"]
 
-20.times do 
-  Carnival.create(name: "GREG", location: "New York", number_of_rides: rand(20))
+12.times do 
+  Carnival.create(name: "GREG", location: "New York", number_of_rides: rand(20), img_url: images.sample)
 end 
