@@ -1,0 +1,12 @@
+<h1>Carnival Index</h1>
+
+<a href="/carnivals/new">Make New Carnival</a>
+<hr>
+
+<% @carnivals.each do |carnival| %>
+  <div class=carnival>
+    <h5>Name: <a href="/carnivals/<%= carnival.id %>"><%= carnival.name %></a></h5>
+    <h5>Location: <%= carnival.location %></h5>
+    <h5>Rides: <%= carnival.number_of_rides %></h5>
+  </div>
+<% end %>
