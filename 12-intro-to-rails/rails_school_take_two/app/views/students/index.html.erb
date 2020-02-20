@@ -1,0 +1,8 @@
+<h1>INDEX PAGE</h1>
+
+
+<% @students.each do |student| %>
+  <h5><%= link_to student.name, "/students/#{student.id}" %></h5>
+<% end %>
+
+
