@@ -11,6 +11,15 @@ a {
   color: black;
 }
 
+form {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 25px;
+  height: 100%;
+  padding: 20px;
+  width: 88%;
+  margin: 20px auto 0px;
+}
+
 .app-header {
   background-image: url("https://cdn.shopify.com/s/files/1/2100/2891/products/1261_cereal_boxes_1200_b9ea9620-46f9-455d-9238-dc5b4c84da6a.jpg?v=1565038476");
   width: 90%;
@@ -56,7 +65,12 @@ strong {
 
 .show-img {
   max-width: 25%;
+  padding: 25px;
+  border-radius: 25px;
+  border: 8px solid rgba(15, 217, 240, 0.3);
+  background-color: rgba(15, 217, 240, 0.3);
 }
+
 
 .index-container {
   width: 90%;
@@ -85,11 +99,16 @@ strong {
   // border: 5px solid rgb(15, 217, 240);
 }
 
-.show-container {
+.container {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 25px;
   height: 100%;
   padding: 20px;
   width: 88%;
   margin: 20px auto 0px;
+}
+
+.form-container {
+  text-align: center;
+  min-height: 400px;
 }

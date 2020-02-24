@@ -1,4 +1,4 @@
-<div class="show-container">
+<div class="container">
   <h2><%= @cereal.name %></h2>
   <h3><strong>Release Year:</strong> <%= @cereal.release_year %></h3>
   <h3><strong>Slogan:</strong> <%= @cereal.slogan && @cereal.slogan.length > 0 ? @cereal.slogan : "Get this Cereal a Slogan!" %></h3>
@@ -10,4 +10,6 @@
 
   <hr>
   <%= link_to "Index", cereals_path %>
+  <br>
+  <%= link_to "Edit Cereal", edit_cereal_path(@cereal) %>
 </div>
