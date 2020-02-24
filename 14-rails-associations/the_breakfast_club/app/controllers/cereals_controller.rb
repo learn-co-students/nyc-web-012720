@@ -2,7 +2,6 @@ class CerealsController < ApplicationController
   before_action :find_cereal, only: [:show, :edit, :update, :destroy]
 
   def index 
-    byebug
     @cereals = Cereal.all
 
     # render :index

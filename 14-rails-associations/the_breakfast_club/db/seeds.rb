@@ -8,6 +8,7 @@
 
 Cereal.destroy_all
 User.destroy_all
+Review.destroy_all
 
 
 cereals = [
@@ -63,7 +64,18 @@ cereals.each {|cereal| Cereal.create(cereal)}
 puts "Making Humans..."
 humans.each {|human| User.create(human)}
 
+puts "Making Reviews..."
+20.times do 
+  Review.create(content: Faker::Restaurant.review, rating: rand(5), user: User.all.sample, cereal: Cereal.all.sample)
+end 
 
+20.times do 
+  Review.create(content: Faker::TvShows::DumbAndDumber.quote, rating: rand(5), user: User.all.sample, cereal: Cereal.all.sample)
+end 
+
+20.times do 
+  Review.create(content: Faker::TvShows::FamilyGuy.quote, rating: rand(5), user: User.all.sample, cereal: Cereal.all.sample)
+end 
 
 
 

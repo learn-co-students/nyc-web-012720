@@ -14,6 +14,20 @@ class ReviewsController < ApplicationController
     redirect_to review.cereal
   end 
 
+  def edit 
+    @review = Review.find(params[:id])
+    
+    @cereals = Cereal.all
+    @users = User.all
+  end 
+  
+  def update 
+    @review = Review.find(params[:id])
+    @review.update(review_params)
+
+    redirect_to user_path(@review.user)
+  end 
+
   private 
 
   def review_params
