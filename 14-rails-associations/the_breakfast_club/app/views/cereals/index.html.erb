@@ -1,9 +1,12 @@
 <div class="index-container">
+
   <%  @cereals.each do |cereal| %>
     <div class="index-tile">
       <h2><%= link_to cereal.name, cereal %></h2>
       <img class="index-img" src="<%= cereal.img_url %>" alt="<%= cereal.name%>">
       <h3><%= cereal.slogan %></h3>
+
+      <%= button_to "Delete", cereal_path(cereal), method: :delete %>
     </div>
   <%  end  %>
 </div>

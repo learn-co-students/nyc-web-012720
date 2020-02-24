@@ -1,22 +1,4 @@
 <div class="container form-container">
   <h2>EDIT CEREAL</h2>
-
-  <%= form_for @cereal do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-
-    <%= f.label :brand %>
-    <%= f.text_field :brand %>
-
-    <%= f.label :release_year %>
-    <%= f.number_field :release_year %>
-
-    <%= f.label :slogan %>
-    <%= f.number_field :slogan %>
-
-    <%= f.label :img_url %>
-    <%= f.text_field :img_url %>
-
-    <%= f.submit %>
-  <% end %>
+  <%= render 'form' %>
 </div>

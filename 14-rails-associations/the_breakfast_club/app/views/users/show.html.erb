@@ -1,0 +1,11 @@
+<div class="container">
+  <h2><%= @user.name %></h2>
+
+  <marquee>
+    <img class="show-img" src="<%= @user.img_url %>" alt="<%= @user.name %>">
+  </marquee>
+
+  <hr>
+  <%= link_to "Index", users_path %>
+   
+</div>
