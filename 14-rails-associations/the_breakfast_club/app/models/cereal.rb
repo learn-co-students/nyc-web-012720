@@ -1,0 +1,2 @@
+class Cereal < ApplicationRecord
+end

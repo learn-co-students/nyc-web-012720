@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TheBreakfastClub</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Molle:400i&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+  
+    <div class="app-header">
+      <div class="overlay">
+        <h1> The Breakfast Club</h1>
+      </div>
+    </div>
+
+    <%= yield %>
+  </body>
+</html>

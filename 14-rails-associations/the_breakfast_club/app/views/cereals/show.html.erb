@@ -1,0 +1,13 @@
+<div class="show-container">
+  <h2><%= @cereal.name %></h2>
+  <h3><strong>Release Year:</strong> <%= @cereal.release_year %></h3>
+  <h3><strong>Slogan:</strong> <%= @cereal.slogan && @cereal.slogan.length > 0 ? @cereal.slogan : "Get this Cereal a Slogan!" %></h3>
+
+  
+  <marquee>
+    <img class="show-img" src="<%= @cereal.img_url %>" alt="<%= @cereal.name %>">
+  </marquee>
+
+  <hr>
+  <%= link_to "Index", cereals_path %>
+</div>
