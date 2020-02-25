@@ -1,0 +1,15 @@
+<%= form_for @review do |f| %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  
+  <%= f.label :rating %>
+  <%= f.number_field :rating %>
+
+  <%= f.label :user_id %>
+  <%= f.collection_select :user_id, @users, :id, :name %>
+  
+  <%= f.label :cereal_id %>
+  <%= f.collection_select :cereal_id, @cereals, :id, :name %>
+
+  <%= f.submit %>
+<% end %>

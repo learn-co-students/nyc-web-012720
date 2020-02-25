@@ -1,0 +1,24 @@
+<div class="container">
+  <h2><%= @cereal.name %></h2>
+  <h3><strong>Release Year:</strong> <%= @cereal.release_year %></h3>
+  <h3><strong>Slogan:</strong> <%= @cereal.slogan && @cereal.slogan.length > 0 ? @cereal.slogan : "Get this Cereal a Slogan!" %></h3>
+
+  
+  <marquee>
+    <img class="show-img" src="<%= @cereal.img_url %>" alt="<%= @cereal.name %>">
+  </marquee>
+
+  <hr>
+  <%= link_to "Index", cereals_path %>
+  <br>
+  <%= link_to "Edit Cereal", edit_cereal_path(@cereal) %>
+
+
+<h4>REVIEWS </h4>
+  <% @cereal.reviews.each do |review| %>
+    <p>CONTENT: <%= review.content %></p>
+    <p>RATING: <%= review.rating %></p>
+    <p>USER: <%= review.user.name %></p>
+    <hr>
+  <% end %>
+</div>

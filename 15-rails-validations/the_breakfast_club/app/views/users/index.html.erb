@@ -1,0 +1,10 @@
+<div class="index-container">
+
+  <%  @users.each do |user| %>
+    <div class="index-tile">
+      <h2><%= link_to user.name, user %></h2>
+      <img class="index-img" src="<%= user.img_url %>" alt="<%= user.name%>">
+    </div>
+  <%  end  %>
+  
+</div>
