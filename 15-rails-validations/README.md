@@ -1,4 +1,4 @@
-# (8) Rails Validations
+# Rails Validations
 ===
 
 ## SWBATs
