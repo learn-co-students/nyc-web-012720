@@ -1,214 +1,193 @@
-# (7) Rails Associations
+# (8) Rails Validations
 ===
 
 ## SWBATs
-- Set up ActiveRecord associations on models in Rails
-- Use data from the associations in view files
-- Render a dropdown `<select>` tag in a form using the `collection_select` helper
-- Handle deleting an instance of a model that has other records associated using `dependent: :destroy`
+- Understand the difference between client-side and server-side validations
+- Create server side validations using ActiveRecord
+- Validate different data types (string, number)
+- Create custom validations
+- Use the flash hash to persist data for an additional request and render error messages to the user
+
+**Problem Statement:** We need to make sure users input data in a way that ensures only *valid* data is saved in our database. 
+
+In other words, how do we protect our database from the typical user:
+
+![typical-user](https://camo.githubusercontent.com/bd5a0e0355fa6a8c1f5478f197be5562a479d41a/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f5a665531314f44616e6c6f43412f67697068792e676966)
+
 
 ## Outline
-- [] Finish CRUD (delete)
-- [] Clean Up Controller && Views
-- [ ] Add an additional model to our domain
-  - [ ] Create relationship using ActiveRecord
-  - [ ] Use information from the association in our views
-  - [ ] Make a create form for the new model with a dropdown
-  - [ ] Update our delete method from the first model
+- [] What is happening with our Delete?
+- [] Discuss client vs server side validations
+- [] Add validations and review ActiveRecord documentation
+- [] Add custom validations
+- [] Use validations in our controller
+- [] Render validation error messages
 
 
 
 
+------------------------------------------------------------------------------------
 
 
 
+### Server Side Validation vs Client Side Validation
 
+Server side validation means we are checking for valid data *after* the request comes to the server. Client side validation means we are checking for valid data *before* the request comes to the server - i.e. we will prevent the form from being submitted unless the data is valid.
 
+In a typical application, you'll handle validations on both the server *and* client side - client-side to give immediate feedback to the user in case they are providing invalid input, and server-side to handle more complex validations as well as to account for malicious users who try to get around our validations on the client side.
 
-  ----------------------------------------------------------------------------------------
+In Mod 2, we'll be focusing mainly on server side validation. However, you've already seen some degree of client-side validation in the forms we've shown in lecture: we're using text input fields for strings; number input fields for integers; and checkboxes for booleans.
 
-### ActiveRecord Associations Review
+### ActiveRecord Validations
 
-Rails uses ActiveRecord on models under the hood, so your knowledge of associations from Mod 1 is crucial to setting you up for success working with Rails. 
-
-For convenience, Rails lets you create associations when you are generating a model using `rails g model`. 
-
-For example, if we have relationship where Student `has_many` Labs and a Lab `belongs_to` a Student, you can generate the Labs model with: 
-
-`rails g model Lab name student:belongs_to`
-
-Adding `student:belongs_to` in the generate command will:
-- Create a `student_id` column in the migration
-- Add `belongs_to :student` in the Lab model class
- 
-You might also see `references` instead of `belongs_to` - something like `rails g model student:references`. Both work exactly the same (`belongs_to` is an alias for `references`). 
-
-More Info: [Active Record Migrations — Ruby on Rails Guides](https://guides.rubyonrails.org/active_record_migrations.html#creating-a-standalone-migration)
-
-### Using Associations in View Files
-
-Using our Student -< Lab domain, let's assume our models are set up as follows:
+ActiveRecord provides a lot of code that makes it easy to write validations in our models. For example, if we wanted to ensure that all instances of a `Student` model are created with a `name` attribute, we could write something like this:
 
 ```rb
-# app/models/student.rb
 class Student < ApplicationRecord
-  has_many :labs
-end
-
-# app/models/lab.rb
-class Lab < ApplicationRecord
-  belongs_to :student
+  validates :name, presence: true
 end
 ```
 
-Since we have created the associations in our models, we can now access information using the association in our views:
+Some other common validations you might see:
 
-```html.erb
-<!--app/views/labs/show.html.erb-->
-<h1><%= @lab.name %></h1>
-<p>This lab belongs to <%= @lab.student.name %> </p>
+- String validations
+  - How long does the string need to be? `validates :name, length: { minimum: 2 }`
+  - Is this string unique for this attribute on the model? `validates :email, uniqueness: true`  (i.e. is there a Student with the same email already in the database?)
+- Number validations
+  - Is this a valid number? `validates :age, numericality: true`
+  - Is this a valid integer? `validates :age, numericality: { only_integer: true }`
+  - Is this number within a certain range (ie 1..5)? `validates :age, inclusion: { in: 1..100 }`
+
+We can also create custom validations like so:
+
+```rb
+class Student < ApplicationRecord
+  validate :age_over_eighteen
+  
+  def age_over_eighteen
+    if age && age < 18
+      # throw an error if the age isn't included, or age is less than 18
+      errors.add(:age, "must be over 18")
+    end
+    # otherwise it's valid!
+  end
+end
 ```
 
-### Dropdowns with `collection_select`
+All the validations on a model will run only when information from the model is being saved to the database, so in response to the following methods: `create`, `save`, and `update`.
 
-If we wanted to give a user the ability to create a new Lab in our application, they would need some way of selecting the `student_id` for the associated Student (since a Lab belongs to a Student). In Sinatra, we showed that the `<select>` tag gives our users a nice interface to work with rather than using an input field to type in a student id number:
+For example, if we have a Student model with the following validations:
 
-```html
-<select name="car_id">
-  <option value="1">Volvo</option>
-  <option value="2">Saab</option>
-  <option value="3">Mercedes</option>
-  <option value="4">Audi</option>
-</select>
+```rb
+class Student < ApplicationRecord
+  validates :name, presence: true
+  validates :age, numericality: { only_integer: true } 
+end
 ```
 
-In Rails, there's a helper method for building out `<select>` tags called `collection_select`. You can use it with `form_for` like this:
+And we ran the following code in Rails console:
 
-```erb
-<!--app/views/labs/new.html.erb-->
-<%= form_for @lab do |f| %>
-  <%= f.collection_select :student_id, @students, :id, :name %>
-  <%= f.submit %>
-<% end %>
+```rb
+ian = Student.create(name: "Ian", age: "one hundred")
+# => #<Student id: nil, name: "Ian", age: 0, created_at: nil, updated_at: nil>
+ian.valid?
+# => false
+ian.errors.full_messages
+# => ["Age is not a number"]
 ```
 
-In the above example, the collection_select will iterate over each instance of a student in the `@students` variable to generate the `<option>` tags within our select tag, using `student.id` for the value and the `student.name` as the text to display to the user. It would generate the following HTML for a select tag:
+The validations on our student model would prevent this from persisting bad data (in the example above, the `age: "one hundred"` isn't valid) in our database. 
 
-```html
-<select name="lab[student_id]" id="lab_student_id">
-  <option value="1">Ian</option>
-  <option value="2">Rei</option>
-  <option value="3">Leizl</option>
-</select>
-```
+We also have access to the `.valid?` method which we can use to check if our model is valid.
 
-The selected value of the dropdown would come through in the params under `params[:lab][:student_id]` so we can use it to create a new instance of a Lab and associate it with the student selected in the dropdown.
+ActiveRecord *also* gives us access to error messages from our validations by calling `.errors` on our model instance. 
 
-More Info: [collection_select (ActionView::Helpers::FormOptionsHelper) - APIdock](https://apidock.com/rails/ActionView/Helpers/FormOptionsHelper/collection_select)
+More Info: [Active Record Validations — Ruby on Rails Guides](https://guides.rubyonrails.org/active_record_validations.html)
 
+### Rendering Error Messages
 
-### Controller Filter Methods
+In the example above, we showed a way to protect our data from bad user input based by using ActiveRecord validations on our model.
 
-Controller filters are methods that you can specify within a given controller to instruct Rails to run certain code before or after running a controller method.
+The next problem we have to address is: how do we let our users know that their input wasn't valid?
 
 Consider the following controller:
 
 ```rb
 class StudentsController < ApplicationController
-
-  def index
-    @students = Student.all
+  
+  def new
+    @student = Student.new
   end
 
-  def show
-    @student = Student.find(params[:id])
-  end
-
-  def edit
-    @student = Student.find(params[:id])
-  end
-
-  def update
-    @student = Student.find(params[:id])
-    @student.update(params.require(:student).permit(:name, :age))
+  def create
+    @student = Student.create(params.require(:student).permit(:name, :age))
     redirect_to @student
   end
 
 end
 ```
 
-In the `show`, `edit` and `update` methods, we're repeating the code to find a student based on params and assign that student to an instance variable. We could refactor this to a helper method, like `set_student` below:
+Since we've added validations to our Student model, we can check if the new student was created successfully in our `students#create` action:
 
 ```rb
-class StudentsController < ApplicationController
-
-  def index
-    @students = Student.all
+  def create
+    @student = Student.create(params.require(:student).permit(:name, :age))
+    if @student.valid?
+      redirect_to @student
+    else
+      # we need to persist the errors for the redirect... but how???
+      @errors = @student.errors.full_messages
+      redirect_to new_student_path
+    end
   end
-
-  def show
-    set_student
-  end
-
-  def edit
-    set_student
-  end
-
-  def update
-    set_student
-    @student.update(params.require(:student).permit(:name, :age))
-    redirect_to @student
-  end
-
-  private
-
-  def set_student
-    @student = Student.find(params[:id])
-  end
-end
 ```
 
-Rails lets us take this one step further and define methods we want to run before certain controller actions using the `before_action` helper:
+We can use the `.valid?` method to check if the student was successfully created, and use the `.errors.full_messages` methods to get any error messages if the model isn't valid. **But** we have one more issue: since we want to show the user the form *and* the error messages in the view after redirecting, how can we persist the errors for the next request?
 
+
+### Flash Hash
+
+The solution to our problem of persisting data across requests can't be fixed by any of the tools we've seen to this point. To solve this issue, Rails provides a new tool: the Flash Hash.
+
+The job of the flash hash is to give you a place to data for *one additional request*. (We'll see next week some solutions for persisting data across more than one request.)
+
+To make use of the flash hash, let's rewrite our `students#create` method as follows:
 
 ```rb
-class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update]
-
-  def index
-    @students = Student.all
+  def create
+    @student = Student.create(params.require(:student).permit(:name, :age))
+    if @student.valid?
+      redirect_to @student
+    else
+      flash[:errors] = @student.errors.full_messages
+      redirect_to new_student_path
+    end
   end
-
-  def show
-  end
-
-  def edit
-  end
-
-  def update
-    @student.update(params.require(:student).permit(:name, :age))
-    redirect_to @student
-  end
-
-  private
-
-  def set_student
-    @student = Student.find(params[:id])
-  end
-end
 ```
 
-This code tells Rails: "before you run the show, edit and update actions, run the set_student method". This is a helpful pattern for DRYing up our code and reusing logic across our controller actions.
+In the code above, we've add a key of `:errors` on the flash hash and stored all the error messages from our validation errors on that key. 
 
-More Info: [Action Controller Overview — Ruby on Rails Guides](https://guides.rubyonrails.org/action_controller_overview.html#filters)
+The flash hash is available globally in our controllers and our views, so we can access the information from the flash hash after redirecting to the new_student_path. We can access it directly in the view file:
 
-
-### Partials
-
-If you have any HTML you'd like to reuse in multiple view files, you can extract it to a partial view file. This helps cut down on writing repetitive code. For example, we can re-use the code for a `form_for` for both the `new` and `edit` views. 
-
-*app/views/labs/new.html.erb*
+*app/views/students/new.html.erb*
 ```erb
-<h1>New Lab Form</h1>
-<%= render "form" %>
+<% if flash[:errors] %>
+  <ul>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @student do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :age %>
+  <%= f.submit %>
+<% end %>
 ```
+
+In the view file, first we're checking if there are any errors present on the flash hash at the key of `:errors` (if we don't have any errors, what will happen when we call `flash[:errors].each`?). 
+
+Finally, we're iterating over each error and generating HTML to display the error.
+
+More Info: [Flash Hash Rails Docs](https://api.rubyonrails.org/classes/ActionDispatch/Flash.html)
