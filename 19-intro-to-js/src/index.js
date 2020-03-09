@@ -1,5 +1,7 @@
-console.log('Hi there')
+console.log('Welcome to Mod 3')
 
+
+let name = 'steven'
 
 // How to write functions in JavaScript
 
