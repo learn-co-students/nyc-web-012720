@@ -74,14 +74,31 @@
 - READ:
 
 - `document.getElementById`
+  - return the first element with the id provided
+
+  - `let container = document.getElementById("image-container")`
   
 - `node.getElementsByTagName`
+  - returns a collection of nodes that match the tag name searched
+
+  - `document.body.getElementsByTagName('li')`
 
 - `node.getElementsByClassName`
-  
+  - returns a collection of nodes that match the class name searched
+
+  - `document.getElementsByClassName("movie")`
+
 - `node.querySelector`
+  - return the first element that matches the CSS selector 
+
+  - `document.querySelector('.movie')`
   
 - `node.querySelectorAll`
+  - returns a collection of nodes that match the  CSS selector
+
+    - `document.querySelectorAll('.movie')`
+
+ - https://i.ytimg.com/vi/qYKrqd9VacY/maxresdefault.jpg
 
   - We can also combine selectors for more specificity:
     - We need a space between `#parent .child`
