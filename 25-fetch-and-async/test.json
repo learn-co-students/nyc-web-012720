@@ -1,0 +1,22 @@
+{
+  "dogs": [
+    {
+      "id": 1,
+      "name": "Bahlu",
+      "breed": "German Weiler",
+      "age": 7
+    },
+    {
+      "id": 2,
+      "name": "Lana",
+      "breed": "Whippit",
+      "age": 7
+    },
+    {
+      "id": 3,
+      "name": "Charlie",
+      "breed": "Shiba-Inu",
+      "age": 11
+    }
+  ]
+}
