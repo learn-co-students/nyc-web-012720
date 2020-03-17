@@ -1,0 +1,1676 @@
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE DATABASE "movies_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE "movies_api_test" ENCODING = 'unicode'[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (204.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "movies_api_development"[0m
+  [1m[35m (206.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "movies_api_test"[0m
+  [1m[35m (532.5ms)[0m  [1m[35mCREATE DATABASE "movies_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (453.4ms)[0m  [1m[35mCREATE DATABASE "movies_api_test" ENCODING = 'unicode'[0m
+  [1m[35m (13.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6855664872665726250)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMovies (20200316144718)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6855664872665726250)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6855664872665726250)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMovies (20200316144718)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "movies" ("id" bigserial primary key, "title" character varying, "year" integer, "score" integer, "imageUrl" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200316144718"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-16 14:48:43.200689"], ["updated_at", "2020-03-16 14:48:43.200689"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6855664872665726250)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-03-16 10:49:28 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/sdoran/.rvm/gems/ruby-2.6.1/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/sdoran/.rvm/gems/ruby-2.6.1/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.3ms | Allocations: 480)
+Completed 200 OK in 17ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 2604)
+
+
+Started GET "/movies" for ::1 at 2020-03-16 10:49:32 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/movies"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 10:49:39 -0400
+Processing by Api::V1::MoviesController#index as HTML
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 569)
+
+
+  
+Zeitwerk::NameError (expected file /Users/sdoran/Development/code/batches/nyc-web-012720/26-rails-api/movies-api/app/models/movie.rb to define constant Movie, but didn't):
+  
+app/controllers/api/v1/movies_controller.rb:3:in `index'
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 10:50:10 -0400
+Processing by Api::V1::MoviesController#index as HTML
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 1.5ms | ActiveRecord: 2.3ms | Allocations: 1753)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6855664872665726250)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6855664872665726250)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6855664872665726250)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6855664872665726250)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.9ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "score", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Jaws"], ["year", 1975], ["score", 19], ["imageUrl", "https://resizing.flixster.com/h8e7W7cVaQhuLdSvABDkJk6r5sc=/206x305/v1.bTsxMTE2NjE5OTtqOzE4MzU0OzEyMDA7ODAwOzEyMDA"], ["created_at", "2020-03-16 14:54:21.153072"], ["updated_at", "2020-03-16 14:54:21.153072"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.7ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "score", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "The Matrix"], ["year", 1999], ["score", 0], ["imageUrl", "https://imgc.allpostersimages.com/img/print/u-g-F4S5W20.jpg?w=550&h=550&p=0"], ["created_at", "2020-03-16 14:54:21.157543"], ["updated_at", "2020-03-16 14:54:21.157543"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.4ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "score", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "The Goonies"], ["year", 1985], ["score", 0], ["imageUrl", "https://images-na.ssl-images-amazon.com/images/I/515DYf99zfL.jpg"], ["created_at", "2020-03-16 14:54:21.162279"], ["updated_at", "2020-03-16 14:54:21.162279"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.3ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "score", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Free Willy"], ["year", 1993], ["score", 0], ["imageUrl", "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Free_willy.jpg/220px-Free_willy.jpg"], ["created_at", "2020-03-16 14:54:21.165400"], ["updated_at", "2020-03-16 14:54:21.165400"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.2ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "score", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Top Gun"], ["year", 1986], ["score", 0], ["imageUrl", "https://m.media-amazon.com/images/M/MV5BZjQxYTA3ODItNzgxMy00N2Y2LWJlZGMtMTRlM2JkZjI1ZDhhXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_.jpg"], ["created_at", "2020-03-16 14:54:21.167774"], ["updated_at", "2020-03-16 14:54:21.167774"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.3ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "score", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Mean Girls"], ["year", 2004], ["score", 0], ["imageUrl", "https://img01.mgo-images.com/image/thumbnail?id=1MV270609a1c6c89af5538a6d63cea71ed4&ql=70&sizes=310x465"], ["created_at", "2020-03-16 14:54:21.169966"], ["updated_at", "2020-03-16 14:54:21.169966"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 10:54:43 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::MoviesController#index as HTML
+  [1m[36mMovie Load (1.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:5:in `index'
+Completed 200 OK in 21ms (Views: 13.8ms | ActiveRecord: 5.8ms | Allocations: 6683)
+
+
+Started GET "/movies" for ::1 at 2020-03-16 10:54:54 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/movies"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 10:55:05 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.6ms | Allocations: 1612)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 10:55:06 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:5:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 1612)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 10:55:08 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.8ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.8ms | Allocations: 1593)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 10:55:40 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:5:in `index'
+Completed 200 OK in 22ms (Views: 15.0ms | ActiveRecord: 5.3ms | Allocations: 6687)
+
+
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 10:55:44 -0400
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for Api::V1::MoviesController):
+  
+actionpack (6.0.2.1) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.2.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 10:55:44 -0400
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for Api::V1::MoviesController):
+  
+actionpack (6.0.2.1) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.2.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 10:55:44 -0400
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for Api::V1::MoviesController):
+  
+actionpack (6.0.2.1) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.2.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 10:55:44 -0400
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for Api::V1::MoviesController):
+  
+actionpack (6.0.2.1) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.2.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 10:55:44 -0400
+  
+AbstractController::ActionNotFound (The action 'update' could not be found for Api::V1::MoviesController):
+  
+actionpack (6.0.2.1) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.2.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 10:55:45 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 1612)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 10:56:47 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:5:in `index'
+Completed 200 OK in 22ms (Views: 15.2ms | ActiveRecord: 5.0ms | Allocations: 6191)
+
+
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 10:56:49 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>20, "id"=>"1", "movie"=>{"score"=>20}}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.5ms | Allocations: 3001)
+
+
+  
+NoMethodError (undefined method `create' for #<Movie:0x00007ff43b12efd0>
+Did you mean?  created_at):
+  
+app/controllers/api/v1/movies_controller.rb:11:in `update'
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 10:56:49 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>21, "id"=>"1", "movie"=>{"score"=>21}}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms | Allocations: 2479)
+
+
+  
+NoMethodError (undefined method `create' for #<Movie:0x00007ff43abac6e8>
+Did you mean?  created_at):
+  
+app/controllers/api/v1/movies_controller.rb:11:in `update'
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 10:56:50 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>22, "id"=>"1", "movie"=>{"score"=>22}}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.4ms | Allocations: 2479)
+
+
+  
+NoMethodError (undefined method `create' for #<Movie:0x00007ff43acc7208>
+Did you mean?  created_at):
+  
+app/controllers/api/v1/movies_controller.rb:11:in `update'
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 10:56:50 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>23, "id"=>"1", "movie"=>{"score"=>23}}
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.5ms | Allocations: 2479)
+
+
+  
+NoMethodError (undefined method `create' for #<Movie:0x00007ff43b3abb78>
+Did you mean?  created_at):
+  
+app/controllers/api/v1/movies_controller.rb:11:in `update'
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 10:56:50 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.5ms | Allocations: 1593)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 10:57:30 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:5:in `index'
+Completed 200 OK in 18ms (Views: 8.9ms | ActiveRecord: 8.2ms | Allocations: 6171)
+
+
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 10:57:32 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>20, "id"=>"1", "movie"=>{"score"=>20}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[36mMovie Create (0.5ms)[0m  [1m[32mINSERT INTO "movies" ("score", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["score", 20], ["created_at", "2020-03-16 14:57:32.380645"], ["updated_at", "2020-03-16 14:57:32.380645"]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 2436)
+
+
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 10:57:32 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>21, "id"=>"1", "movie"=>{"score"=>21}}
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[36mMovie Create (0.8ms)[0m  [1m[32mINSERT INTO "movies" ("score", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["score", 21], ["created_at", "2020-03-16 14:57:32.529395"], ["updated_at", "2020-03-16 14:57:32.529395"]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 2260)
+
+
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 10:57:32 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>22, "id"=>"1", "movie"=>{"score"=>22}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[36mMovie Create (0.3ms)[0m  [1m[32mINSERT INTO "movies" ("score", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["score", 22], ["created_at", "2020-03-16 14:57:32.665101"], ["updated_at", "2020-03-16 14:57:32.665101"]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 2260)
+
+
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 10:57:32 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>23, "id"=>"1", "movie"=>{"score"=>23}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[36mMovie Create (0.3ms)[0m  [1m[32mINSERT INTO "movies" ("score", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["score", 23], ["created_at", "2020-03-16 14:57:32.811860"], ["updated_at", "2020-03-16 14:57:32.811860"]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 2.3ms | Allocations: 2260)
+
+
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 10:57:32 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>24, "id"=>"1", "movie"=>{"score"=>24}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[36mMovie Create (0.3ms)[0m  [1m[32mINSERT INTO "movies" ("score", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["score", 24], ["created_at", "2020-03-16 14:57:32.966234"], ["updated_at", "2020-03-16 14:57:32.966234"]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 2260)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 10:57:33 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.4ms | Allocations: 2185)
+
+
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 11:04:12 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>20, "id"=>"1", "movie"=>{"score"=>20}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[36mMovie Create (2.2ms)[0m  [1m[32mINSERT INTO "movies" ("score", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["score", 20], ["created_at", "2020-03-16 15:04:12.627232"], ["updated_at", "2020-03-16 15:04:12.627232"]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 3.1ms | Allocations: 2280)
+
+
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 11:04:12 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>21, "id"=>"1", "movie"=>{"score"=>21}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[36mMovie Create (0.4ms)[0m  [1m[32mINSERT INTO "movies" ("score", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["score", 21], ["created_at", "2020-03-16 15:04:12.765041"], ["updated_at", "2020-03-16 15:04:12.765041"]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.2ms | Allocations: 2260)
+
+
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 11:04:12 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>22, "id"=>"1", "movie"=>{"score"=>22}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[36mMovie Create (0.5ms)[0m  [1m[32mINSERT INTO "movies" ("score", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["score", 22], ["created_at", "2020-03-16 15:04:12.916027"], ["updated_at", "2020-03-16 15:04:12.916027"]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.2ms | Allocations: 2260)
+
+
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 11:04:13 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>23, "id"=>"1", "movie"=>{"score"=>23}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[36mMovie Create (0.6ms)[0m  [1m[32mINSERT INTO "movies" ("score", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["score", 23], ["created_at", "2020-03-16 15:04:13.064718"], ["updated_at", "2020-03-16 15:04:13.064718"]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.2ms | Allocations: 2260)
+
+
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 11:04:13 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>24, "id"=>"1", "movie"=>{"score"=>24}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[36mMovie Create (0.5ms)[0m  [1m[32mINSERT INTO "movies" ("score", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["score", 24], ["created_at", "2020-03-16 15:04:13.196877"], ["updated_at", "2020-03-16 15:04:13.196877"]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 2260)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 11:04:13 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.5ms | Allocations: 2850)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 11:04:39 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:5:in `index'
+Completed 200 OK in 18ms (Views: 6.8ms | ActiveRecord: 10.0ms | Allocations: 7421)
+
+
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 11:04:41 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>20, "id"=>"1", "movie"=>{"score"=>20}}
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[36mMovie Update (1.2ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 20], ["updated_at", "2020-03-16 15:04:41.876753"], ["id", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 2.5ms | Allocations: 2992)
+
+
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 11:04:42 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>21, "id"=>"1", "movie"=>{"score"=>21}}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 21], ["updated_at", "2020-03-16 15:04:42.019522"], ["id", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 2822)
+
+
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 11:04:42 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>22, "id"=>"1", "movie"=>{"score"=>22}}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 22], ["updated_at", "2020-03-16 15:04:42.174437"], ["id", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 2822)
+
+
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 11:04:42 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>23, "id"=>"1", "movie"=>{"score"=>23}}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 23], ["updated_at", "2020-03-16 15:04:42.337725"], ["id", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 2822)
+
+
+Started PATCH "/api/v1/movies/1" for ::1 at 2020-03-16 11:04:42 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>24, "id"=>"1", "movie"=>{"score"=>24}}
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 24], ["updated_at", "2020-03-16 15:04:42.521949"], ["id", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 2822)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 11:04:43 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.3ms | Allocations: 2775)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Destroy (0.5ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Destroy (0.2ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Destroy (0.3ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 4]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Destroy (0.2ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Destroy (0.2ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 6]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Destroy (0.3ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 7]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Destroy (0.2ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 8]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Destroy (0.2ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 9]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Destroy (0.2ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 10]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Destroy (0.2ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 11]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Destroy (0.3ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 12]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Destroy (0.2ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 13]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Destroy (0.2ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 14]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Destroy (0.2ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 15]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Destroy (0.2ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 16]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Destroy (0.2ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.4ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "score", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Jaws"], ["year", 1975], ["score", 19], ["imageUrl", "https://resizing.flixster.com/h8e7W7cVaQhuLdSvABDkJk6r5sc=/206x305/v1.bTsxMTE2NjE5OTtqOzE4MzU0OzEyMDA7ODAwOzEyMDA"], ["created_at", "2020-03-16 15:04:54.314610"], ["updated_at", "2020-03-16 15:04:54.314610"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.2ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "score", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "The Matrix"], ["year", 1999], ["score", 0], ["imageUrl", "https://imgc.allpostersimages.com/img/print/u-g-F4S5W20.jpg?w=550&h=550&p=0"], ["created_at", "2020-03-16 15:04:54.317389"], ["updated_at", "2020-03-16 15:04:54.317389"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.2ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "score", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "The Goonies"], ["year", 1985], ["score", 0], ["imageUrl", "https://images-na.ssl-images-amazon.com/images/I/515DYf99zfL.jpg"], ["created_at", "2020-03-16 15:04:54.320250"], ["updated_at", "2020-03-16 15:04:54.320250"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.4ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "score", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Free Willy"], ["year", 1993], ["score", 0], ["imageUrl", "https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Free_willy.jpg/220px-Free_willy.jpg"], ["created_at", "2020-03-16 15:04:54.322757"], ["updated_at", "2020-03-16 15:04:54.322757"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.2ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "score", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Top Gun"], ["year", 1986], ["score", 0], ["imageUrl", "https://m.media-amazon.com/images/M/MV5BZjQxYTA3ODItNzgxMy00N2Y2LWJlZGMtMTRlM2JkZjI1ZDhhXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_.jpg"], ["created_at", "2020-03-16 15:04:54.325915"], ["updated_at", "2020-03-16 15:04:54.325915"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMovie Create (0.2ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "score", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Mean Girls"], ["year", 2004], ["score", 0], ["imageUrl", "https://img01.mgo-images.com/image/thumbnail?id=1MV270609a1c6c89af5538a6d63cea71ed4&ql=70&sizes=310x465"], ["created_at", "2020-03-16 15:04:54.328583"], ["updated_at", "2020-03-16 15:04:54.328583"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 11:05:01 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:5:in `index'
+Completed 200 OK in 23ms (Views: 14.0ms | ActiveRecord: 7.9ms | Allocations: 6683)
+
+
+Started PATCH "/api/v1/movies/17" for ::1 at 2020-03-16 11:05:03 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>20, "id"=>"17", "movie"=>{"score"=>20}}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[36mMovie Update (0.6ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 20], ["updated_at", "2020-03-16 15:05:03.857618"], ["id", 17]]
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 3450)
+
+
+Started PATCH "/api/v1/movies/17" for ::1 at 2020-03-16 11:05:04 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>21, "id"=>"17", "movie"=>{"score"=>21}}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 21], ["updated_at", "2020-03-16 15:05:04.011243"], ["id", 17]]
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 2825)
+
+
+Started PATCH "/api/v1/movies/17" for ::1 at 2020-03-16 11:05:04 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>22, "id"=>"17", "movie"=>{"score"=>22}}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 22], ["updated_at", "2020-03-16 15:05:04.152069"], ["id", 17]]
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 2.7ms | Allocations: 2822)
+
+
+Started PATCH "/api/v1/movies/17" for ::1 at 2020-03-16 11:05:04 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>23, "id"=>"17", "movie"=>{"score"=>23}}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 23], ["updated_at", "2020-03-16 15:05:04.428733"], ["id", 17]]
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 2843)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 11:05:05 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.4ms | Allocations: 1613)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 11:05:18 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 16ms (Views: 1.0ms | ActiveRecord: 5.8ms | Allocations: 6029)
+
+
+Started PATCH "/api/v1/movies/20" for ::1 at 2020-03-16 11:05:21 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>1, "id"=>"20", "movie"=>{"score"=>1}}
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[36mMovie Update (0.3ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 1], ["updated_at", "2020-03-16 15:05:21.359707"], ["id", 20]]
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 2930)
+
+
+Started PATCH "/api/v1/movies/20" for ::1 at 2020-03-16 11:05:21 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>2, "id"=>"20", "movie"=>{"score"=>2}}
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 2], ["updated_at", "2020-03-16 15:05:21.501571"], ["id", 20]]
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 1.8ms | Allocations: 2822)
+
+
+Started PATCH "/api/v1/movies/20" for ::1 at 2020-03-16 11:05:21 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>3, "id"=>"20", "movie"=>{"score"=>3}}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 3], ["updated_at", "2020-03-16 15:05:21.645759"], ["id", 20]]
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 2822)
+
+
+Started PATCH "/api/v1/movies/20" for ::1 at 2020-03-16 11:05:21 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>4, "id"=>"20", "movie"=>{"score"=>4}}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 4], ["updated_at", "2020-03-16 15:05:21.799191"], ["id", 20]]
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 2822)
+
+
+Started PATCH "/api/v1/movies/20" for ::1 at 2020-03-16 11:05:21 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>5, "id"=>"20", "movie"=>{"score"=>5}}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 5], ["updated_at", "2020-03-16 15:05:21.956141"], ["id", 20]]
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 2822)
+
+
+Started PATCH "/api/v1/movies/20" for ::1 at 2020-03-16 11:05:22 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>6, "id"=>"20", "movie"=>{"score"=>6}}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `update'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 6], ["updated_at", "2020-03-16 15:05:22.135331"], ["id", 20]]
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:11:in `update'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 2822)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 11:05:23 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.5ms | Allocations: 1432)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 11:05:26 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 4ms (Views: 1.4ms | ActiveRecord: 0.7ms | Allocations: 1433)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 11:07:42 -0400
+Processing by Api::V1::MoviesController#index as HTML
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 12ms (Views: 0.6ms | ActiveRecord: 5.1ms | Allocations: 5985)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 11:07:44 -0400
+Processing by Api::V1::MoviesController#index as HTML
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.5ms | Allocations: 1444)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 11:07:44 -0400
+Processing by Api::V1::MoviesController#index as HTML
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms | Allocations: 1444)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 11:07:45 -0400
+Processing by Api::V1::MoviesController#index as HTML
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.4ms | Allocations: 1444)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 11:07:45 -0400
+Processing by Api::V1::MoviesController#index as HTML
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.4ms | Allocations: 1444)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 11:07:51 -0400
+Processing by Api::V1::MoviesController#index as HTML
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 4.2ms | Allocations: 5820)
+
+
+Started GET "/api/v1/movies/12" for ::1 at 2020-03-16 11:08:06 -0400
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for Api::V1::MoviesController):
+  
+actionpack (6.0.2.1) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.2.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/movies" for ::1 at 2020-03-16 13:57:14 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/movies"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 13:57:23 -0400
+Processing by Api::V1::MoviesController#index as HTML
+  [1m[36mMovie Load (1.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 32ms (Views: 1.5ms | ActiveRecord: 17.8ms | Allocations: 6604)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-16 14:01:19 -0400
+Processing by Api::V1::MoviesController#index as HTML
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 16ms (Views: 0.5ms | ActiveRecord: 6.9ms | Allocations: 5804)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 13:23:12 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.8ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 25ms (Views: 1.4ms | ActiveRecord: 6.0ms | Allocations: 6433)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 13:24:39 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (1.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 9ms (Views: 2.8ms | ActiveRecord: 1.5ms | Allocations: 1267)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 13:28:21 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 5ms (Views: 1.7ms | ActiveRecord: 0.4ms | Allocations: 1267)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 13:29:18 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.5ms | Allocations: 1267)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 13:30:08 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.4ms | Allocations: 1248)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 13:30:09 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 4ms (Views: 1.2ms | ActiveRecord: 0.4ms | Allocations: 1267)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 13:38:15 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (1.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 1.1ms | Allocations: 1322)
+
+
+Started POST "/api/v1/movies" for ::1 at 2020-03-17 13:38:24 -0400
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for Api::V1::MoviesController):
+  
+actionpack (6.0.2.1) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.2.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 13:38:29 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.7ms | Allocations: 1247)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 13:40:03 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 21ms (Views: 0.7ms | ActiveRecord: 10.3ms | Allocations: 5893)
+
+
+Started POST "/api/v1/movies" for ::1 at 2020-03-17 13:40:26 -0400
+Processing by Api::V1::MoviesController#create as JSON
+  Parameters: {"title"=>"Thing", "imageUrl"=>"https://img.moviepostershop.com/the-thing-movie-poster-1982-1010467006.jpg", "year"=>"1980", "score"=>0, "movie"=>{"title"=>"Thing", "year"=>"1980", "score"=>0, "imageUrl"=>"https://img.moviepostershop.com/the-thing-movie-poster-1982-1010467006.jpg"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `create'
+  [1m[36mMovie Create (0.6ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "score", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Thing"], ["year", 1980], ["score", 0], ["imageUrl", "https://img.moviepostershop.com/the-thing-movie-poster-1982-1010467006.jpg"], ["created_at", "2020-03-17 17:40:27.021387"], ["updated_at", "2020-03-17 17:40:27.021387"]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `create'
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 5.8ms | Allocations: 6380)
+
+
+Started PATCH "/api/v1/movies/21" for ::1 at 2020-03-17 13:41:07 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>1, "id"=>"21", "movie"=>{"score"=>1}}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:15:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 1], ["updated_at", "2020-03-17 17:41:07.719264"], ["id", 21]]
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 4584)
+
+
+Started PATCH "/api/v1/movies/21" for ::1 at 2020-03-17 13:41:08 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>2, "id"=>"21", "movie"=>{"score"=>2}}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:15:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[36mMovie Update (0.3ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 2], ["updated_at", "2020-03-17 17:41:08.382700"], ["id", 21]]
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 2794)
+
+
+Started PATCH "/api/v1/movies/21" for ::1 at 2020-03-17 13:41:08 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>3, "id"=>"21", "movie"=>{"score"=>3}}
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:15:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[36mMovie Update (0.5ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 3], ["updated_at", "2020-03-17 17:41:08.896406"], ["id", 21]]
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 2794)
+
+
+Started PATCH "/api/v1/movies/21" for ::1 at 2020-03-17 13:41:09 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>4, "id"=>"21", "movie"=>{"score"=>4}}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:15:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[36mMovie Update (0.3ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 4], ["updated_at", "2020-03-17 17:41:09.287087"], ["id", 21]]
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 2794)
+
+
+Started PATCH "/api/v1/movies/21" for ::1 at 2020-03-17 13:41:09 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>5, "id"=>"21", "movie"=>{"score"=>5}}
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:15:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[36mMovie Update (0.3ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 5], ["updated_at", "2020-03-17 17:41:09.962920"], ["id", 21]]
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 2792)
+
+
+Started PATCH "/api/v1/movies/18" for ::1 at 2020-03-17 13:41:13 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>1, "id"=>"18", "movie"=>{"score"=>1}}
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:15:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[36mMovie Update (0.6ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 1], ["updated_at", "2020-03-17 17:41:13.672977"], ["id", 18]]
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 2798)
+
+
+Started PATCH "/api/v1/movies/18" for ::1 at 2020-03-17 13:41:14 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>2, "id"=>"18", "movie"=>{"score"=>2}}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:15:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 2], ["updated_at", "2020-03-17 17:41:14.173757"], ["id", 18]]
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 2798)
+
+
+Started PATCH "/api/v1/movies/18" for ::1 at 2020-03-17 13:41:14 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>3, "id"=>"18", "movie"=>{"score"=>3}}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:15:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[36mMovie Update (0.7ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 3], ["updated_at", "2020-03-17 17:41:14.515587"], ["id", 18]]
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 2798)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 13:41:23 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (2.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 25ms (Views: 1.2ms | ActiveRecord: 2.3ms | Allocations: 1354)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 13:42:46 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms | Allocations: 1351)
+
+
+Started PATCH "/api/v1/movies/20" for ::1 at 2020-03-17 13:42:51 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>7, "id"=>"20", "movie"=>{"score"=>7}}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:15:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[36mMovie Update (1.0ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 7], ["updated_at", "2020-03-17 17:42:51.467931"], ["id", 20]]
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.1ms | Allocations: 2792)
+
+
+Started PATCH "/api/v1/movies/20" for ::1 at 2020-03-17 13:42:52 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>8, "id"=>"20", "movie"=>{"score"=>8}}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:15:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[36mMovie Update (0.3ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 8], ["updated_at", "2020-03-17 17:42:52.672287"], ["id", 20]]
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 2792)
+
+
+Started PATCH "/api/v1/movies/20" for ::1 at 2020-03-17 13:42:52 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>9, "id"=>"20", "movie"=>{"score"=>9}}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:15:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 9], ["updated_at", "2020-03-17 17:42:52.849638"], ["id", 20]]
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 2792)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 13:42:53 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (2.8ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 7ms (Views: 1.6ms | ActiveRecord: 2.8ms | Allocations: 1351)
+
+
+Started PATCH "/api/v1/movies/20" for ::1 at 2020-03-17 13:42:55 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>10, "id"=>"20", "movie"=>{"score"=>10}}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:15:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[36mMovie Update (0.8ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 10], ["updated_at", "2020-03-17 17:42:55.286435"], ["id", 20]]
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 2792)
+
+
+Started PATCH "/api/v1/movies/20" for ::1 at 2020-03-17 13:42:55 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>11, "id"=>"20", "movie"=>{"score"=>11}}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:15:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 11], ["updated_at", "2020-03-17 17:42:55.431091"], ["id", 20]]
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 2792)
+
+
+Started PATCH "/api/v1/movies/20" for ::1 at 2020-03-17 13:42:55 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>12, "id"=>"20", "movie"=>{"score"=>12}}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:15:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[36mMovie Update (0.7ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 12], ["updated_at", "2020-03-17 17:42:55.588427"], ["id", 20]]
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 2792)
+
+
+Started PATCH "/api/v1/movies/20" for ::1 at 2020-03-17 13:42:55 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>13, "id"=>"20", "movie"=>{"score"=>13}}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:15:in `update'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[36mMovie Update (0.3ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 13], ["updated_at", "2020-03-17 17:42:55.732592"], ["id", 20]]
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 2792)
+
+
+Started PATCH "/api/v1/movies/20" for ::1 at 2020-03-17 13:42:55 -0400
+Processing by Api::V1::MoviesController#update as JSON
+  Parameters: {"score"=>14, "id"=>"20", "movie"=>{"score"=>14}}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:15:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[36mMovie Update (0.4ms)[0m  [1m[33mUPDATE "movies" SET "score" = $1, "updated_at" = $2 WHERE "movies"."id" = $3[0m  [["score", 14], ["updated_at", "2020-03-17 17:42:55.888551"], ["id", 20]]
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:17:in `update'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 2792)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 13:42:56 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.8ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.8ms | Allocations: 1351)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 13:42:56 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 1351)
+
+
+Started POST "/api/v1/movies" for ::1 at 2020-03-17 13:51:20 -0400
+Processing by Api::V1::MoviesController#create as JSON
+  Parameters: {"title"=>"Knives Out", "imageUrl"=>"https://images-na.ssl-images-amazon.com/images/I/81bCcdEhfCL._AC_UL320_SR220,320_.jpg", "year"=>"2019", "score"=>0, "movie"=>{"title"=>"Knives Out", "year"=>"2019", "score"=>0, "imageUrl"=>"https://images-na.ssl-images-amazon.com/images/I/81bCcdEhfCL._AC_UL320_SR220,320_.jpg"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `create'
+  [1m[36mMovie Create (0.8ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "score", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Knives Out"], ["year", 2019], ["score", 0], ["imageUrl", "https://images-na.ssl-images-amazon.com/images/I/81bCcdEhfCL._AC_UL320_SR220,320_.jpg"], ["created_at", "2020-03-17 17:51:20.287360"], ["updated_at", "2020-03-17 17:51:20.287360"]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `create'
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 1.3ms | Allocations: 2369)
+
+
+Started POST "/api/v1/movies" for ::1 at 2020-03-17 13:52:30 -0400
+Started POST "/api/v1/movies" for ::1 at 2020-03-17 13:52:30 -0400
+Processing by Api::V1::MoviesController#create as JSON
+  Parameters: {"title"=>"Gremlins", "imageUrl"=>"data:image/jpeg;base64,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", "year"=>"1984", "score"=>0, "movie"=>{"title"=>"Gremlins", "year"=>"1984", "score"=>0, "imageUrl"=>"data:image/jpeg;base64,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"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `create'
+  [1m[36mMovie Create (3.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "score", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Gremlins"], ["year", 1984], ["score", 0], ["imageUrl", "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMWFhUXGBcbFxcYGRgXGhgaFxcXGBoVFxgYHSggGBolHRgYITEhJSkrLi4uGB8zODMtNygtLisBCgoKDg0OGxAQGy0lICUtLy0tLS0tLS0vLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAQYAwQMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAAEAAECAwUGB//EAEAQAAEDAgQDBQYEBAUDBQAAAAEAAhEDIQQSMUEFUWEicYGRoQYTscHR8BQyQuEjUnLxM1NigrIHFaIWFyRjkv/EABoBAAMBAQEBAAAAAAAAAAAAAAABAgMEBQb/xAAsEQACAgICAgEDAgYDAAAAAAAAAQIRAyESMQRBURMiYYGhBRQycZHRI7HB/9oADAMBAAIRAxEAPwAdJJJdR54lJQUgkwJ5eqimlINSGIlPT1Ugy6cthFgM5WUyokA9FXVxIZcgn0+KmrGHUwiWGyx2cXb/ACn0RtLGMiQZCynjl8DQeGqSwne0ILgxgElwF+/7PRD4rjlQEtBEgnMbw1otmcRoPr1hSsMgOkKkFwGN9oHukUrgTL4OnMD9MXufILW4FiXU6ZrVqjnlwm7iQ1pNg1ugJ+gQ8LopaOphRdVA1cB3kLkq/H6lQ9nsNnTUnvOii2qHfmded/mVpHxnVtic/g6s4htrzPK6g/EDmsJuKAsFP30o/l6FzNh9dp3Hmh3d6z811c1P6dCslViOqoVj3KtaREPKSZJUBJJNKdAhk4Cqq1wOqFdXce7kqUGxh73ADVUv4m1lpug3OQtZgNyq+kq2MOdxxrdc3gBCejxynUdlLnNJs05ZE9YM+iw6zZlVNw5Jtr8Fm4b0Fmrjw58RVzZnFrRSIc603dTMOFhz5KmniqzcrD/FY0Ee6I904Wg2i5HLtKONwZIa4NIfYueHEAx+roT03OisaHUxmbXcW5y9vvYfTfIIzEkfmgkHqEnfs0jHlpDYWsHfkMP7QNN1oAuIeYEx4zNoVTuKZCRsR96IPiNY1CG5BUOz2TDr9RaBFgQLJ8Nwox2nQeQPJUm2S1XZJjgDnkmoTDGA3DoHbJB20g79xVvEmljBh2EOeYdWdqS6ZFOTs3XvIQjsOWOIa6HGe0dedjqD1F1Phx923NYg2JF/AudAHeoadlw4+x2YJwdlbqWgkl0ACJMq2viy4U2TADWmxkb26qP44QS3K5zxlLSwZWt6E6nblYeI9EAR/pkC3Ik381S7IYRkv0RdOjCFpPRFapAtqdFvGuzJoOa4NbJ++5QpcQadZHqqqGCe8X+d1LE4BlMfnv8Ay7+EaJOrA1aNSmR+ceYRTiIXO03iLCO9FUi4aGPgoli92PkaRKZQpuJF/RTUDEknSQBEJP5KIcna5OgKnUlUEaEnUpVcvkRnEKFZlke7DKBwx01V80UkZOUckTQyxrdXOwmqoNAg6a6+CdoKNCiWuplpLiNhOn30WI3X+FnBOwJE9YBv4rUczK1x2EfRNw7FDQk33IGmpBjuPmFk9XQzPxVJ7QSSczhFjMAnc+CErsc1oILh2ZdMHbbs2C36mIaRkfTfIDRIykOzWBHaESQfELGr4lpHZIDchmTJDMxbBEfmFtDsEuVhQEwtc25uWk6AuIBIgE6b2BGnmO2mCY2tPiCR8FY3CguqZHCWuaGR+oPMWnpKhiaRFQgkESLi0gAQfvqpKKalSVZh5nxsq2iSRErU4PRh+gNvJEVbEwilS0RbaEkW0n5IttEHUXVrKYC2cl6IooxdfLTgWJsqMJhAWhzrffMo99MHVO8TZTyrSEwR9FpPZv3p2Pgx6c0WymAqsWBAtebI5XoVD0n3hXoPDuujEpKmNCSSSUjKQpNah2uRLFo1QE2BWsCi0SjKLBCxm6AhTpyrxhjMi/Qqyg2E+JxjGfmMdNT6LncpN0i1oGr4e0mypfhezcbqrEcc/kiOTgZP0Qz+L1ZloDumUwPK/qt4wyULkjSpYEOaZ6eN5I9Fj1+HOZUJbcSCOl9O5a/B+Ke87DmgHmDYncQdD56LTq0Qeh5rP6koSqQ+zC4jhGva17TDgAQNjBBaDuJtbu5LiveNkksBJcDYA6D4Hkuq4lWdTe5pbAuQRbWACPKOi5atQOd8RqT4bH1Wyi6JTKvxQ7MfpENO4HIefqh31STbz+9FOm0EkEXtCuZQG1zyS2yrSK8C4h2kyujwNLK0GLiB4dZWLh2AX3+7Il9V8QDA3A1I5TqrjpCb2ax4lTBy3J6aeavpYtjjEweRt5HQrnWNju+C06TRF7/equMbJbNYKYQWCxUnKddvojYUyVBY6HxBkxyRKHc28oj2JlVBvaCMUKYCsRJ2wQySeEkgAqKIBQIRNA2Wso+xhlA3AWm1sLGBReKxrmNblpOqudYBtgLTLnQco8DK5My9lQVukaLn5WkgTE/2XPV2OE+9OWd6hDPVxErK4xxHHgEmhXyif8MFtMDmXUy55H9TgOgXMUsVVccwDGzuGgn/APRklZY8ko3SO2Hixl/VL9Fv9+jrsTQDv8Oox3QVKc+AzX8Fr+yzSCQ5pa5o0cCCQTqJ+9FyOG4VXeA4VGX5tPrZaOHr4vC3tG5b2mHft0iYH9TYI2KifmX9lo6H/CZVyjf6r/1dHZ4nBzUZUbaCM20gb9TsnxPE6bLF0nkL/ssinx/37A2nAqu1AOsaimTqbHs/mG06rCzuDjOoN51stsONZVbZ5uWEsUnGSpmjxrHNfIaw95ga6+C54uyuBi2h7ojx2WnWfO6DdStPM6Lr4cVSMgHLM5d9OneqywjfyR3uInqqX0o6nmocR2VU35dVYK11HNz8EzKR5JdAXB8kI+kUCynzWlWwzmgObceo7xutYMlipgErSw9TYrMAOqMpbK5K0Sg9xsqZUXujdMHLJRHZdSCtUKQU3KWMUpKEpJAASiKRshqZRLGWW8hlrBK1cH1QOGZui6T4XLl3oEaFOrlK4/iDmnFVYH6iYaB3yRFpK6Wm+T81xHE+NCpWe9gytdAHUNtmM6E6nv6LhzY2+uz1v4XNRyNvqjo6BlQxtJhbBkf02Pf1QPDcVmABP33rTp1BoF404yhI+si1KJxvGsIKTfe0y6zhIIjuIIsYO3ksvBe0L2nt/wARttSczdJyuJ9Da50lantfjNW2PSWmIjXkuZ4XwmtiHRSYTGp/S3vK9vx5SUFKTPmfPUJZXGK0eiYVrKtP3lFwqNH5os5vIPZqzv0OxKk3Bk6iAuXo+yWKYQ4ESDq0i3jMjyW9R4lWpAMxFFzz/O1wBiBMtgh5F9x812x8j0zy54Ggirhb/NA1cPJjda2G4nRqw1jw1xE5X9g6XGY9knax+cPVpZTBaWkbEQfWOq0U+RjKNGQcJBFgkaHII8tJReGwkXPJKSoIqzJ/CnktplKGgEbeaJoYdpIkIviDbgR6Kee6L+nqzBqYSPy6cvoohpC024cnQEk6D9lRjP4f+I5rP6j8hdafVS7ZmscpP7UCOqaBWsF1m1+LYdp/PP8ATcfFHYLHUn/leD6fFJ5YemW8GRdxYeAovTZ1XUdKKMiWYJlGElVDBaIRrAgqZRtAyrmJhVEpOqclGFErDiFlzMQAbjl3LjPaPhYoua9hljybH9JF4ncGbdxXVxOhnuupPwLajHU3iQfTkR1WeSCqzo8fM4S/Hs4zB4k6C3VareJBoGrj1MSe4fNAcZ9n6mHAqAl9ObmPy8i4bAne463CBp4gQSSuGWFN3R7uPynJaZHEh+LxDKWRjWk3c0GWtGpJJg9Lald3T/D4Si1jQWsE73kAkuOxNiT3HYLmfY9odWqPIBNmDS25vG8iw5Ij21ow0QS0XaSQQO1EZjsDBbO2YSqlFWo+jl5u3Pt2Xf8ArulmIFKoR4ecTMeC1BiqOJHZNw2eRixBvsRdeWh75YyoXBjXucMrWuMvyzlMjPOVv6o5LqeBTnwrGz7xrHCp/TJIBPQkBN4kton67l9skUcaoimC/bTvnb4rPwvHqjRAqOABmCSWmeYNj3FaXt8wMFNgMklxPgI+a5jBYBz2ueXBlNsZnGd9AALknktoy1ZzOO6OtwftSJ7VIO5ZXOZfrIcD3CF2HBuJUcSIYS2oBekQZgbtcBDhfoei8mOEabMc4u2aWxm/pvY9NSq6GKcIvYeKbbfsX00j2TiWPo4amalV2UaNGrnHk1u5+G6ycZ7d4VpAANTnBDWgxpmgye4EdbLzXjWOq1XipVqPqGIBe4ugcmzoOiBpm6VX2NJHb8U9uarpFICk3p+Yjv1PiY6LnTVqVTJMnm6T5TYKOFwgNzfx9StelhDA7Jg6Kftjs7IQnNUuvwZYwj/5h5D6KxtFzbzJH+0+YWvSY1pzGCPvZNTwbqjsjQO0bcmz15AbpfUTdGjwcVdj8J48WwyqSRz3H1C6ZlUQCDINweiqo8Eo0wewCXCHF15HK+nh05BD4TCCkC1pJbMtBvl6Bd2KMuvR4+aUJNtd/wDYd71JUJLfijATWFE4fsoZro1VWM4g1vfr4D71RLrYM124gHfX7lU4uqRp4rCxAuA2e11tbWPBX0q+gm6lRVkM0KLiLiR1+qK4PxAVHESDrp8CsypiWtBknTTr9wq8M0ub7xtnztFzY+I016qZxTBM7Bh+/ksvG+y+Fqifcta7QOYXU465WENPkpYTHZmNMRPodCL9Vq0tlxTg47NIya6Z5h7NcQOExFSg85W5zm0bfSXEk5QG7TII1XW46tTeId2mkSA2BmnQQbmwPLroue/6kezzmVPxNNhyPn3sSSHy52cjZpG+gy9VyvDsS8vY1roJLWtnQSQAT0krPipbPQhkbjSOwpcJoizGG55k2jnOm11ofhXtblpObS7mmO8w5s2581PEYRzIpsq5MticocX2nNJtfXQ6qBwAIh1Wq4zObMGkWi2QAAdIXn5fIbfdfue74/hKKtrk/wC9L9PZzftNQe4B1RrS5jSc7STmjVpYdAdZmywqlUuoBocezUe5zeRe1rWv7gGx4rocdmZUyVH5xox5ieeR8WJ5HdcziKbqVQ5TG7TzB+yPAruwP7UmeX5cfvtKiRqvqPLyR717gQGNY1ttXQyA2IGg5nvs4wwCpI/VJKnR4w5oOVjQTrAAnvMShZdUdJ125DoPVbL4OSiiqSR3KFI3V1VsJYNsuCGNK2bWELWkTAO8CFstcHgtvBsBsBzI3O9/ksjD4Mugtj4aQbea06VbKOkwfHcLnypS2uz1/HuKqXQ+JpMbaNu64269y1PZqm5zy+Iawa/1aD4nwKFfhs/dEuds3cGetwt7gzQxjWtbIeZLyQO1lENAF8saHeUYIudGfn5o4k4qrfr8Fr37G6FewIrFUslyRHMfOUMV60PlHzjKoSVkJloIp94NTosutSJdnLR3cht3o2pEfIoKu8R2duvLopkJiD4ALRGsDvEaKlonJBgiZm8aGVXXxEXnbTrpZPSrdhpnc67m2/yUtqxJM0MHRJOZ1+0bGIJjUCERi6xa6OYkRzbMjyJ8e9YuDxNWq54BygXuJItd14GygMW4VWh782U2sBY2JtzEI5qh8XZ01Crlq5P5rx1IsfSFv0cRAhcm7EEOYTdzYv0BmPiuo4g6p7sDDjt1IDXEAhgNzVdOsDQbkt2lZZ2ktjxwcnSKPaD2to4VmV4z1XN/wtJaZu90EBtiIuTyi68bxJDnEsaGA6MBJDegLiSfFet4P2aoUb5Pe1DJdUfLyTzdOh10CHxvDaLmljqLbmfyiZtuNDcmRrbuXnxyRWz1I+NKOvY44lRxFFrg6baRDmuyzldHQG4tpyWVVNVo7JBHeAen5ukHxXL1cPVw9cU6byQe0J0iHDtdRf7K0K3GHkDMztWGYG5gROXnpdV9CMvyWvKyQ6dFtXOT2pGaRMxYgg3BtYwgfallMMpZfzNkHexEyesj1KjV4oA27XTy6dD33WNj8eakWgBP6STTXoP5mUoNSVt+xsORefv7srqmJAED7/dB4djnGGguJ0AuTJAgDUmSLBbmC9jOIVT2cLVAmCXtNMA21zwd/jyVuSXZgZGHovrPbTptLnvMNbzJ2uvSvZ/2EbRxNRlcCqw0w6k640MPa4A2cJbfS4uDZa3/AE+9h/wzPfYljffySwBxd7tpDbGOznkHSY58usx1UMaXHbTr07ll9Xk6QerORxvsnSY0mk51OLgGXjl3j1WK/wBnDlc59QZBchsF0C8XIynabrtWVpGZ9m7k/Du+iyMRiGOLiLwDcGLj5fTotYYVeyn5mVR43/s5B+LccrGtcxg0GveZi5On7Lo8CKj2Zsv6WyAWxmaSZgGRIkQe5EYM0HUyDvuNCR/q1nXyXK16vuXkNgxAmSB99IsuhR46RxSk27Z0GNqFzQWOEf6ttonc7KrDTEEgnaOSBpYsHK7bn6QUSawz5gIG417zK6Y9GLewhJX5m8wknYWc3xM2F9XeZAJAPJNgWim4PcQHRZp2JGpG8Xtz9KTRzMkzPZLR1B3G9p8FS+s7sO/mAN9jMn/lHgVjftlUEccouc0GCXSDF5jQ221CH/BBzKYaZkSR1tP2UVVruZnfAJYCYkwJBjLuZjdD1q7mtbm/VTdexLSBIiB6SdEpVbY43Rs8MoBwgOJNwdJMi1+UA6zrtqgH4cBk5SWiMxtHKZBkXVNLiRDWv0zAjx0P7KLsY57HMzACxA6ggxG+6OSFxZHF4nKdHFux3BgWPj4wfFd3hcWGUWtJnI22xJ1PO09kf0jkuBoAloJbAAu1zfUWmYn9luYupFFrmRGVth5QVz+RFzS/udPjyUJX7o0aHE3PNSHxkibxq06dTDrdDouY4lxWtTxBpsfObLBMdmSQQ6LWIJ00QvEGuqOqOouhoazMJiQwED/cMqyMK0l4nb+3zXLjwJy5P/Hwexl8l48aivXv57OrpAPAOrhmDjGpcQT3CVXiMMIgACwmN7So4C7TGmnfH2VZWdo3bl+/3ouhKnSPJlJvbMPE0QT2bn7/AHWlwD2F96z3tVxY1zuy1o1bOpJ/LI07wd1EsBNx2ZuG6xOgARGO4y/M1jWPDpDWtyOaLWADXGZFr29FGeUtKKOrxMUZ25yo1f8A28wpnt1QQBu3lyIPU/ZW7wjH4vBvbSrVPxGGFhUNqtJugLjPbYPExMaBpzPx1RjB7x14iRBmNiTc66rSwWLa5rXn8xmw01I1NuXkuJZOf5OzP4ixpckjssRiAGl02ibbjouedjHVHSQIE218ExxA9w2nMAGPAXA+n9IQPvRBDTt5byu3x4JRs8vLqVGf7T8Qc05GOILrdGnc+A/dZrazm0stI8u3o4kWPjr0OiJx2EE5ieYbN7kQD3ShKzssNYLMZD9Lwe0/rr97daVI5W7Zk8PdUcH0xAFzI0kE7zy+Cm+gXDmRJ8O87qqrWOYuuDmJN563HK8nvV7cVBG878psU4peyZN+ikMIFzbcX5albPD8O4sh1iNDO20+FkLhWh7w7USPEiY8BCvfiCIZoTM3nx8T8Oq2iktmbdhOR/MJKn8LU6+iZWQYrTlBm9pBF4DSJjzv3IJrST2L3kjbSfqrsK9rbZic7gS3/TEmekDzcEPjs9IEsNpjNyB6HSea5G9HUlsM45WcGGNwGvP+rUTFpv8ABRa4e7Y8luUOAIy9og2IzTyuBGyxX4wup5XGTmBJOvMX3vzVtRhyzJjpGyhzt2aKFKjVpvYA1pAiSYMaEz+rYGFoYjDZndmGywgE3Ac4a22Hcudo1C9w0uLmJgC9lqUOIAe7bsSW+IMAK4SXszmmug3D0qdB3ug7MSZBMAA8h4ytNmJaym9rxZrXOB1AynM6BvI9YXP49xD5i0iOlhp8UTjKh9zUIMyx4joWELR04uLM1akmCUqArVC2icxcJIabxexBvpaRzA6Kt+ELSWgEGACeXPx0XTewnBXUqbqzyAaoAaNw2Z7XeYMbR1gGcUwrHycsPJAaYN/kZ0XHHKuVHoyxvinZzmCaWgQjXsm41F0wpIgtHduqkznozaoIM7gyPS/3yVmMxJLm1ZBdYmf5iCDbbT17lXjHjwWfiMSGgZvyzeLkTAkeQVcU1scJOLtdkMRxerV/hgkAkWMGIkft4Dkt+jiDSFNhdNo6wMpkeKCoYyiKX8Ngc8zmM6X/ADSTpBjLHfzRXDME57zUcRmAkDk2bCOt/Jc0Yfd1SX7npZsqePbuTr9DpDWJYG3JLrN3JAmD1HPqgKdZ9Oqc1J2UDMQcrQZtEauBh2m41RL8Rkgi5AtNpif28llcRxPvX55LHQA4ESDrEnv+S6oY+KPJyTuTYfVqjNnLGtZaG5iPWZme5CUuIUWgB1OCJsSYAidzbXVBVMU0Nu8ukSIAEgWkDbTVAfigbMEczEnnBOv91pyozas0aVfDkO7DZtlgkEADaL6kiZUDgqREtcRaQDFhr9yVi4VofmIMuJABPZaIIMQbuHQX1uJWuzFzmksMODQBcNy666kk76ZbbqoyvsUo0UYN7gco237/AOy0MDQc58kmLA35lZ9TF9oAjbaLXP1W3w2qAMu4gnx+i0gZy7NbInQv4hJVX5A89wrH+9zkATrfQHZB4/El3Znsjbr1RODxjgxwJFhI7uSDfUzkl2v7rhb1o7IrdsrwzJcLStl+FblgxBjeYnfzWPTOUgjVEVsQTr9ykipJtl9Gnl0PQ/e6Jw9QZwyJGkzOgv46mVVgmTTne48tPQ+itoU4IMXIiT15BaL0Zy9h2KfD3OeRlMACb6ASAlSri4IBYQQeoIiFj4quXuuLgw03NhYAjXxCvw7nBpt47D6queyHDR6RheIsdTa5osWtNrgW0v1BSxWJcYAtrtedvudkJwbARhKWWB2ST1JJcfGTHch3YqCQTJ9R96LhUd6PQlOSSsrqMOaSAJ9UPiRqim1pMka/XXyCzn1xsbfe61im2c0qAMVMOAHmsmvJEG/MLaxEH72iAI8FnYmmPJbolMwDSIMBdt7F4aKbnHUmB3D95WExgMmPvkuhwVctpwLR6T1VQhsWSeqDOJYoG09Fn4kubBkFptBiZvcc9dCmfQLpvB181WXhp7RJ25+S0a+Tnst/DB5Lyf0gDpHJUYUUmhzHEXJOoGtx4ifRaDdJ227llcRxVFrgXBrnd09JnZOUVHYotvRDCUqYGVzGPA0IDLjqDF/PvKsxjaYgsa1pE/ltMxa3L70VT8Q0g5AwDfn6BDZmvdlBcGjSJ8ys7pUaU27YTVmBUMagAdYt4dFo4Bzg1ozTYl8xMkECSgK1IhzBOYDfvG/jFwieGBxc6TYAkxa0b8/3RFuxNaDvxDebfv8A3JIP3o5pKuTI4nJF2trKoKU2I5kek/VQXId9F1EKypLoBPiqmmN0ZRhwjqPn+ypEN0E8FmS2YltuUi/jaUdWYRFpnTv+/ggTVLTLbRz6ei02Vs8u0tI8Zt5raNVRhPuwOnRBuBGsgTeTz1ARtOlnBE6RtZNhTrI/f6oym0WIVRiRJm7hq+Sg1vJoE923RZOLcDd17fG6epi+yAdLT996ErYxukgrklHbo6lO0kzLxeIcD2SQNgFT+NqG089uUn6oh/ak6beX7IrhGFglx2sPn99SuiELM5TSAqeZ0Ziefh4JOoR15qxlQsJB0aSB8Ruh61abeaAsTbEx4j4LY4ZcG3L0nRYtJ3aA+9lt4QwPL5rXH2ZZWGkILG4YuFtUQaogmPvkqmYsHMPykb+q1lTMVZU9hyBnfOywsVgKhce832A6+C6dxaR3LIr4jN2W+u/7LLLFVs0xyaZm1gxtPKHgv3sbi+5AV/D6z2xU/TpbmeaHxVIT3BVU6sAtBsdiSFz3TOirRbXxx94XNsDFrRPdH3daeGquNJxGrjts0bAcz9FzzausafH6o7CcTIbBMc7coju/YoUhyhrRo+7f9k/RJBf96PX0SV2iOMvgyZCaFEKS5zoHc5TbUIVaaU7FQUMQIPNF4DFdktJ0Jju1I87+JWUSnlNSolwTR0OFxENN7ifD7sq3cTI0hY5qvfaC4jkJMeCT6FQCSx4HMtIHnFlfN1oj6SvZo18YXNHa0vG3PWfkmweYjMY7puesLKazkVc0vgqOUjp/4qpr9zfwwzNzWjT76KbcYAANR15/3WJQquY0iZnY6KqpiHfBbLI0cssafR0NZmeXD97WlCUqMzHxA+Kz6HESBGYoqhjSYS52Woxj3ZbhqZcZAsNZ+QR2GrWg7FZ9Gq4T2tTfcj5KynVLfL71VqVGORRfRosq5rN1TSGkN1J1+MBCnGlosBfl5IZmIkzvr/dPmZ8DUxFZuUjc6D5rKp18r5jmFGriLzcT496Aq1+0onOzTHjLce6XSN9kG8hM6qZ5JOqErJuzoiqJUqoaQYn19E1ct1G+oVCd11NlUL3iSq90ki2MvhOkEznJCIlyUqBKmgYpWvwHhoqkuf8AkaYj+Y6wTsBbzWQug9mca2DScYJJLZtMgAt77T49FtgUXNKRnkbUdCxHHg3s0WNDRvEA9wEKP/eqjmlj6eti6D2QbEkdAqK3AarHdgB4BtcDTYgkei38O+qWO961rTBgNM7HW5C6YLLJtSbX6aM5cEtbAmYChTDIaahe7KDObnJsQIEG/RV1sHSbXa1wlrx2WybOkbzoROvJFcCqgYamSQBcSbfrcAhqbKlPFAv7YqAta6NN4/0kAG28qnGPGLSW69dEpu3v5LMZSpMMfhi5oElzRYeZ1QfD8JSr0qmRuVweS0m8W7LecRMjr3InjVLEPJp0wPdkCT2R33JlU4FjqGFqmRmzOgi9wQ34gpSS5u1rfoa/p72ZWF4e99X3cEEHtz+kc+XdzW3+BpHE5Mlm0gdSJu0A23i3VV0/aEO921re29zQ7kO0AY59OUoxlM/i3O2FIA95dI/4lLHCFa3tDlKXvWjmmkh537UQTrewJXS4dn8ZwcxgJYLNvABjWBrN7bBZlThL21M5LcnvGnXYvFojW612M/8AkuP/ANY/5fslhg4vfz/sMjTWgf8AABtVoiWOmxvo0mDOquwmDp56hyizoAiwEDQaC8+SbhfEM5cx35mkx1En1Q4p1mvfUp5XHOQ6nMZhqCHEwD2vvRaLgqcVav8Axoin0yjib6RaHN7JzEFpEaDcbbLEqP3W17VUhkZUiHEhp6iCb84j1XM5rrkz6nRtjWrCSVWXqmVILE1Jmook3SKZIB86SjKSACFB6sVbggQmhWKACcoAZE4TAVakmmxzo5c9fvw5hDIjC46pT/w3ubebHeIny+XIIA0g7G0g0FrwHODW5gHS46NE7omlWx3aHui42/SOzYnQcwP/ABWOOIVYDfeOgFpA5FgaGkdQGtE8mhWHjGI/zn6g2MXGhstFlmumyeMfglXw2JZTyua9tNxAAMZSXdoAd+qtOAxgyk06o93ZsiMtxz01326IV3Fa5blNVxaIhu1oi3SB5Kx3G8SZmu8zrfXTXnoLKOT+SqQVUw/EDbLV0nYWOhtshDwnGFob7uoWmIbNpMuFp7yqa3G8QQWms8gtykE/p/l7rphx3E/5z9SddycxJ5mfiRom5N9sEkhsLwnEOuym45XFsjZzbkdCEU7DYumS5wqNMGTOzQ5177Brj4FCM4ziBMVXCTmN9SQASeZgDyRFDjWIj/Gf6fTqkm0OgmrgcY+zmVXQRY3vMC06qtuFxNN1m1GuIJtqQCAT1uQOclRPGsR/nP1nXfn3oQ8Wrh2YVHT2r79p2c3/AKu133RbuxUg1nDsSDnFOoCCe1EQQTOvcVLDYTG03S2m8FxMgiQ4gwZG5+h5FCH2gxV/477iDfaI+CY8exP+c+2l+sz36+Z5oUmugpE+N1MRLRXaW65REDWCVmBEYziFWrAqPLo0nqhkNtu2CVDp5UVMJDHCSSnTbKAK4Tq3IEkFcSZanyJJIIGyJZEkkANkT+7SSQAsiYtSSQA2RLIkkgCqtTUMiSSBiyK+gyxSSQBYWIV7DKdJAEciWRJJACyJZEkkALInhOkgBJwUkkAKUkkkAf/Z"], ["created_at", "2020-03-17 17:52:30.399606"], ["updated_at", "2020-03-17 17:52:30.399606"]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `create'
+Completed 200 OK in 9ms (Views: 0.8ms | ActiveRecord: 3.7ms | Allocations: 2798)
+
+
+Processing by Api::V1::MoviesController#create as JSON
+  Parameters: {"title"=>"Gremlins", "imageUrl"=>"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMWFhUXGBcbFxcYGRgXGhgaFxcXGBoVFxgYHSggGBolHRgYITEhJSkrLi4uGB8zODMtNygtLisBCgoKDg0OGxAQGy0lICUtLy0tLS0tLS0vLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAQYAwQMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAAEAAECAwUGB//EAEAQAAEDAgQDBQYEBAUDBQAAAAEAAhEDIQQSMUEFUWEicYGRoQYTscHR8BQyQuEjUnLxM1NigrIHFaIWFyRjkv/EABoBAAMBAQEBAAAAAAAAAAAAAAABAgMEBQb/xAAsEQACAgICAgEDAgYDAAAAAAAAAQIRAyESMQRBURMiYYGhBRQycZHRI7HB/9oADAMBAAIRAxEAPwAdJJJdR54lJQUgkwJ5eqimlINSGIlPT1Ugy6cthFgM5WUyokA9FXVxIZcgn0+KmrGHUwiWGyx2cXb/ACn0RtLGMiQZCynjl8DQeGqSwne0ILgxgElwF+/7PRD4rjlQEtBEgnMbw1otmcRoPr1hSsMgOkKkFwGN9oHukUrgTL4OnMD9MXufILW4FiXU6ZrVqjnlwm7iQ1pNg1ugJ+gQ8LopaOphRdVA1cB3kLkq/H6lQ9nsNnTUnvOii2qHfmded/mVpHxnVtic/g6s4htrzPK6g/EDmsJuKAsFP30o/l6FzNh9dp3Hmh3d6z811c1P6dCslViOqoVj3KtaREPKSZJUBJJNKdAhk4Cqq1wOqFdXce7kqUGxh73ADVUv4m1lpug3OQtZgNyq+kq2MOdxxrdc3gBCejxynUdlLnNJs05ZE9YM+iw6zZlVNw5Jtr8Fm4b0Fmrjw58RVzZnFrRSIc603dTMOFhz5KmniqzcrD/FY0Ee6I904Wg2i5HLtKONwZIa4NIfYueHEAx+roT03OisaHUxmbXcW5y9vvYfTfIIzEkfmgkHqEnfs0jHlpDYWsHfkMP7QNN1oAuIeYEx4zNoVTuKZCRsR96IPiNY1CG5BUOz2TDr9RaBFgQLJ8Nwox2nQeQPJUm2S1XZJjgDnkmoTDGA3DoHbJB20g79xVvEmljBh2EOeYdWdqS6ZFOTs3XvIQjsOWOIa6HGe0dedjqD1F1Phx923NYg2JF/AudAHeoadlw4+x2YJwdlbqWgkl0ACJMq2viy4U2TADWmxkb26qP44QS3K5zxlLSwZWt6E6nblYeI9EAR/pkC3Ik381S7IYRkv0RdOjCFpPRFapAtqdFvGuzJoOa4NbJ++5QpcQadZHqqqGCe8X+d1LE4BlMfnv8Ay7+EaJOrA1aNSmR+ceYRTiIXO03iLCO9FUi4aGPgoli92PkaRKZQpuJF/RTUDEknSQBEJP5KIcna5OgKnUlUEaEnUpVcvkRnEKFZlke7DKBwx01V80UkZOUckTQyxrdXOwmqoNAg6a6+CdoKNCiWuplpLiNhOn30WI3X+FnBOwJE9YBv4rUczK1x2EfRNw7FDQk33IGmpBjuPmFk9XQzPxVJ7QSSczhFjMAnc+CErsc1oILh2ZdMHbbs2C36mIaRkfTfIDRIykOzWBHaESQfELGr4lpHZIDchmTJDMxbBEfmFtDsEuVhQEwtc25uWk6AuIBIgE6b2BGnmO2mCY2tPiCR8FY3CguqZHCWuaGR+oPMWnpKhiaRFQgkESLi0gAQfvqpKKalSVZh5nxsq2iSRErU4PRh+gNvJEVbEwilS0RbaEkW0n5IttEHUXVrKYC2cl6IooxdfLTgWJsqMJhAWhzrffMo99MHVO8TZTyrSEwR9FpPZv3p2Pgx6c0WymAqsWBAtebI5XoVD0n3hXoPDuujEpKmNCSSSUjKQpNah2uRLFo1QE2BWsCi0SjKLBCxm6AhTpyrxhjMi/Qqyg2E+JxjGfmMdNT6LncpN0i1oGr4e0mypfhezcbqrEcc/kiOTgZP0Qz+L1ZloDumUwPK/qt4wyULkjSpYEOaZ6eN5I9Fj1+HOZUJbcSCOl9O5a/B+Ke87DmgHmDYncQdD56LTq0Qeh5rP6koSqQ+zC4jhGva17TDgAQNjBBaDuJtbu5LiveNkksBJcDYA6D4Hkuq4lWdTe5pbAuQRbWACPKOi5atQOd8RqT4bH1Wyi6JTKvxQ7MfpENO4HIefqh31STbz+9FOm0EkEXtCuZQG1zyS2yrSK8C4h2kyujwNLK0GLiB4dZWLh2AX3+7Il9V8QDA3A1I5TqrjpCb2ax4lTBy3J6aeavpYtjjEweRt5HQrnWNju+C06TRF7/equMbJbNYKYQWCxUnKddvojYUyVBY6HxBkxyRKHc28oj2JlVBvaCMUKYCsRJ2wQySeEkgAqKIBQIRNA2Wso+xhlA3AWm1sLGBReKxrmNblpOqudYBtgLTLnQco8DK5My9lQVukaLn5WkgTE/2XPV2OE+9OWd6hDPVxErK4xxHHgEmhXyif8MFtMDmXUy55H9TgOgXMUsVVccwDGzuGgn/APRklZY8ko3SO2Hixl/VL9Fv9+jrsTQDv8Oox3QVKc+AzX8Fr+yzSCQ5pa5o0cCCQTqJ+9FyOG4VXeA4VGX5tPrZaOHr4vC3tG5b2mHft0iYH9TYI2KifmX9lo6H/CZVyjf6r/1dHZ4nBzUZUbaCM20gb9TsnxPE6bLF0nkL/ssinx/37A2nAqu1AOsaimTqbHs/mG06rCzuDjOoN51stsONZVbZ5uWEsUnGSpmjxrHNfIaw95ga6+C54uyuBi2h7ojx2WnWfO6DdStPM6Lr4cVSMgHLM5d9OneqywjfyR3uInqqX0o6nmocR2VU35dVYK11HNz8EzKR5JdAXB8kI+kUCynzWlWwzmgObceo7xutYMlipgErSw9TYrMAOqMpbK5K0Sg9xsqZUXujdMHLJRHZdSCtUKQU3KWMUpKEpJAASiKRshqZRLGWW8hlrBK1cH1QOGZui6T4XLl3oEaFOrlK4/iDmnFVYH6iYaB3yRFpK6Wm+T81xHE+NCpWe9gytdAHUNtmM6E6nv6LhzY2+uz1v4XNRyNvqjo6BlQxtJhbBkf02Pf1QPDcVmABP33rTp1BoF404yhI+si1KJxvGsIKTfe0y6zhIIjuIIsYO3ksvBe0L2nt/wARttSczdJyuJ9Da50lantfjNW2PSWmIjXkuZ4XwmtiHRSYTGp/S3vK9vx5SUFKTPmfPUJZXGK0eiYVrKtP3lFwqNH5os5vIPZqzv0OxKk3Bk6iAuXo+yWKYQ4ESDq0i3jMjyW9R4lWpAMxFFzz/O1wBiBMtgh5F9x812x8j0zy54Ggirhb/NA1cPJjda2G4nRqw1jw1xE5X9g6XGY9knax+cPVpZTBaWkbEQfWOq0U+RjKNGQcJBFgkaHII8tJReGwkXPJKSoIqzJ/CnktplKGgEbeaJoYdpIkIviDbgR6Kee6L+nqzBqYSPy6cvoohpC024cnQEk6D9lRjP4f+I5rP6j8hdafVS7ZmscpP7UCOqaBWsF1m1+LYdp/PP8ATcfFHYLHUn/leD6fFJ5YemW8GRdxYeAovTZ1XUdKKMiWYJlGElVDBaIRrAgqZRtAyrmJhVEpOqclGFErDiFlzMQAbjl3LjPaPhYoua9hljybH9JF4ncGbdxXVxOhnuupPwLajHU3iQfTkR1WeSCqzo8fM4S/Hs4zB4k6C3VareJBoGrj1MSe4fNAcZ9n6mHAqAl9ObmPy8i4bAne463CBp4gQSSuGWFN3R7uPynJaZHEh+LxDKWRjWk3c0GWtGpJJg9Lald3T/D4Si1jQWsE73kAkuOxNiT3HYLmfY9odWqPIBNmDS25vG8iw5Ij21ow0QS0XaSQQO1EZjsDBbO2YSqlFWo+jl5u3Pt2Xf8ArulmIFKoR4ecTMeC1BiqOJHZNw2eRixBvsRdeWh75YyoXBjXucMrWuMvyzlMjPOVv6o5LqeBTnwrGz7xrHCp/TJIBPQkBN4kton67l9skUcaoimC/bTvnb4rPwvHqjRAqOABmCSWmeYNj3FaXt8wMFNgMklxPgI+a5jBYBz2ueXBlNsZnGd9AALknktoy1ZzOO6OtwftSJ7VIO5ZXOZfrIcD3CF2HBuJUcSIYS2oBekQZgbtcBDhfoei8mOEabMc4u2aWxm/pvY9NSq6GKcIvYeKbbfsX00j2TiWPo4amalV2UaNGrnHk1u5+G6ycZ7d4VpAANTnBDWgxpmgye4EdbLzXjWOq1XipVqPqGIBe4ugcmzoOiBpm6VX2NJHb8U9uarpFICk3p+Yjv1PiY6LnTVqVTJMnm6T5TYKOFwgNzfx9StelhDA7Jg6Kftjs7IQnNUuvwZYwj/5h5D6KxtFzbzJH+0+YWvSY1pzGCPvZNTwbqjsjQO0bcmz15AbpfUTdGjwcVdj8J48WwyqSRz3H1C6ZlUQCDINweiqo8Eo0wewCXCHF15HK+nh05BD4TCCkC1pJbMtBvl6Bd2KMuvR4+aUJNtd/wDYd71JUJLfijATWFE4fsoZro1VWM4g1vfr4D71RLrYM124gHfX7lU4uqRp4rCxAuA2e11tbWPBX0q+gm6lRVkM0KLiLiR1+qK4PxAVHESDrp8CsypiWtBknTTr9wq8M0ub7xtnztFzY+I016qZxTBM7Bh+/ksvG+y+Fqifcta7QOYXU465WENPkpYTHZmNMRPodCL9Vq0tlxTg47NIya6Z5h7NcQOExFSg85W5zm0bfSXEk5QG7TII1XW46tTeId2mkSA2BmnQQbmwPLroue/6kezzmVPxNNhyPn3sSSHy52cjZpG+gy9VyvDsS8vY1roJLWtnQSQAT0krPipbPQhkbjSOwpcJoizGG55k2jnOm11ofhXtblpObS7mmO8w5s2581PEYRzIpsq5MticocX2nNJtfXQ6qBwAIh1Wq4zObMGkWi2QAAdIXn5fIbfdfue74/hKKtrk/wC9L9PZzftNQe4B1RrS5jSc7STmjVpYdAdZmywqlUuoBocezUe5zeRe1rWv7gGx4rocdmZUyVH5xox5ieeR8WJ5HdcziKbqVQ5TG7TzB+yPAruwP7UmeX5cfvtKiRqvqPLyR717gQGNY1ttXQyA2IGg5nvs4wwCpI/VJKnR4w5oOVjQTrAAnvMShZdUdJ125DoPVbL4OSiiqSR3KFI3V1VsJYNsuCGNK2bWELWkTAO8CFstcHgtvBsBsBzI3O9/ksjD4Mugtj4aQbea06VbKOkwfHcLnypS2uz1/HuKqXQ+JpMbaNu64269y1PZqm5zy+Iawa/1aD4nwKFfhs/dEuds3cGetwt7gzQxjWtbIeZLyQO1lENAF8saHeUYIudGfn5o4k4qrfr8Fr37G6FewIrFUslyRHMfOUMV60PlHzjKoSVkJloIp94NTosutSJdnLR3cht3o2pEfIoKu8R2duvLopkJiD4ALRGsDvEaKlonJBgiZm8aGVXXxEXnbTrpZPSrdhpnc67m2/yUtqxJM0MHRJOZ1+0bGIJjUCERi6xa6OYkRzbMjyJ8e9YuDxNWq54BygXuJItd14GygMW4VWh782U2sBY2JtzEI5qh8XZ01Crlq5P5rx1IsfSFv0cRAhcm7EEOYTdzYv0BmPiuo4g6p7sDDjt1IDXEAhgNzVdOsDQbkt2lZZ2ktjxwcnSKPaD2to4VmV4z1XN/wtJaZu90EBtiIuTyi68bxJDnEsaGA6MBJDegLiSfFet4P2aoUb5Pe1DJdUfLyTzdOh10CHxvDaLmljqLbmfyiZtuNDcmRrbuXnxyRWz1I+NKOvY44lRxFFrg6baRDmuyzldHQG4tpyWVVNVo7JBHeAen5ukHxXL1cPVw9cU6byQe0J0iHDtdRf7K0K3GHkDMztWGYG5gROXnpdV9CMvyWvKyQ6dFtXOT2pGaRMxYgg3BtYwgfallMMpZfzNkHexEyesj1KjV4oA27XTy6dD33WNj8eakWgBP6STTXoP5mUoNSVt+xsORefv7srqmJAED7/dB4djnGGguJ0AuTJAgDUmSLBbmC9jOIVT2cLVAmCXtNMA21zwd/jyVuSXZgZGHovrPbTptLnvMNbzJ2uvSvZ/2EbRxNRlcCqw0w6k640MPa4A2cJbfS4uDZa3/AE+9h/wzPfYljffySwBxd7tpDbGOznkHSY58usx1UMaXHbTr07ll9Xk6QerORxvsnSY0mk51OLgGXjl3j1WK/wBnDlc59QZBchsF0C8XIynabrtWVpGZ9m7k/Du+iyMRiGOLiLwDcGLj5fTotYYVeyn5mVR43/s5B+LccrGtcxg0GveZi5On7Lo8CKj2Zsv6WyAWxmaSZgGRIkQe5EYM0HUyDvuNCR/q1nXyXK16vuXkNgxAmSB99IsuhR46RxSk27Z0GNqFzQWOEf6ttonc7KrDTEEgnaOSBpYsHK7bn6QUSawz5gIG417zK6Y9GLewhJX5m8wknYWc3xM2F9XeZAJAPJNgWim4PcQHRZp2JGpG8Xtz9KTRzMkzPZLR1B3G9p8FS+s7sO/mAN9jMn/lHgVjftlUEccouc0GCXSDF5jQ221CH/BBzKYaZkSR1tP2UVVruZnfAJYCYkwJBjLuZjdD1q7mtbm/VTdexLSBIiB6SdEpVbY43Rs8MoBwgOJNwdJMi1+UA6zrtqgH4cBk5SWiMxtHKZBkXVNLiRDWv0zAjx0P7KLsY57HMzACxA6ggxG+6OSFxZHF4nKdHFux3BgWPj4wfFd3hcWGUWtJnI22xJ1PO09kf0jkuBoAloJbAAu1zfUWmYn9luYupFFrmRGVth5QVz+RFzS/udPjyUJX7o0aHE3PNSHxkibxq06dTDrdDouY4lxWtTxBpsfObLBMdmSQQ6LWIJ00QvEGuqOqOouhoazMJiQwED/cMqyMK0l4nb+3zXLjwJy5P/Hwexl8l48aivXv57OrpAPAOrhmDjGpcQT3CVXiMMIgACwmN7So4C7TGmnfH2VZWdo3bl+/3ouhKnSPJlJvbMPE0QT2bn7/AHWlwD2F96z3tVxY1zuy1o1bOpJ/LI07wd1EsBNx2ZuG6xOgARGO4y/M1jWPDpDWtyOaLWADXGZFr29FGeUtKKOrxMUZ25yo1f8A28wpnt1QQBu3lyIPU/ZW7wjH4vBvbSrVPxGGFhUNqtJugLjPbYPExMaBpzPx1RjB7x14iRBmNiTc66rSwWLa5rXn8xmw01I1NuXkuJZOf5OzP4ixpckjssRiAGl02ibbjouedjHVHSQIE218ExxA9w2nMAGPAXA+n9IQPvRBDTt5byu3x4JRs8vLqVGf7T8Qc05GOILrdGnc+A/dZrazm0stI8u3o4kWPjr0OiJx2EE5ieYbN7kQD3ShKzssNYLMZD9Lwe0/rr97daVI5W7Zk8PdUcH0xAFzI0kE7zy+Cm+gXDmRJ8O87qqrWOYuuDmJN563HK8nvV7cVBG878psU4peyZN+ikMIFzbcX5albPD8O4sh1iNDO20+FkLhWh7w7USPEiY8BCvfiCIZoTM3nx8T8Oq2iktmbdhOR/MJKn8LU6+iZWQYrTlBm9pBF4DSJjzv3IJrST2L3kjbSfqrsK9rbZic7gS3/TEmekDzcEPjs9IEsNpjNyB6HSea5G9HUlsM45WcGGNwGvP+rUTFpv8ABRa4e7Y8luUOAIy9og2IzTyuBGyxX4wup5XGTmBJOvMX3vzVtRhyzJjpGyhzt2aKFKjVpvYA1pAiSYMaEz+rYGFoYjDZndmGywgE3Ac4a22Hcudo1C9w0uLmJgC9lqUOIAe7bsSW+IMAK4SXszmmug3D0qdB3ug7MSZBMAA8h4ytNmJaym9rxZrXOB1AynM6BvI9YXP49xD5i0iOlhp8UTjKh9zUIMyx4joWELR04uLM1akmCUqArVC2icxcJIabxexBvpaRzA6Kt+ELSWgEGACeXPx0XTewnBXUqbqzyAaoAaNw2Z7XeYMbR1gGcUwrHycsPJAaYN/kZ0XHHKuVHoyxvinZzmCaWgQjXsm41F0wpIgtHduqkznozaoIM7gyPS/3yVmMxJLm1ZBdYmf5iCDbbT17lXjHjwWfiMSGgZvyzeLkTAkeQVcU1scJOLtdkMRxerV/hgkAkWMGIkft4Dkt+jiDSFNhdNo6wMpkeKCoYyiKX8Ngc8zmM6X/ADSTpBjLHfzRXDME57zUcRmAkDk2bCOt/Jc0Yfd1SX7npZsqePbuTr9DpDWJYG3JLrN3JAmD1HPqgKdZ9Oqc1J2UDMQcrQZtEauBh2m41RL8Rkgi5AtNpif28llcRxPvX55LHQA4ESDrEnv+S6oY+KPJyTuTYfVqjNnLGtZaG5iPWZme5CUuIUWgB1OCJsSYAidzbXVBVMU0Nu8ukSIAEgWkDbTVAfigbMEczEnnBOv91pyozas0aVfDkO7DZtlgkEADaL6kiZUDgqREtcRaQDFhr9yVi4VofmIMuJABPZaIIMQbuHQX1uJWuzFzmksMODQBcNy666kk76ZbbqoyvsUo0UYN7gco237/AOy0MDQc58kmLA35lZ9TF9oAjbaLXP1W3w2qAMu4gnx+i0gZy7NbInQv4hJVX5A89wrH+9zkATrfQHZB4/El3Znsjbr1RODxjgxwJFhI7uSDfUzkl2v7rhb1o7IrdsrwzJcLStl+FblgxBjeYnfzWPTOUgjVEVsQTr9ykipJtl9Gnl0PQ/e6Jw9QZwyJGkzOgv46mVVgmTTne48tPQ+itoU4IMXIiT15BaL0Zy9h2KfD3OeRlMACb6ASAlSri4IBYQQeoIiFj4quXuuLgw03NhYAjXxCvw7nBpt47D6queyHDR6RheIsdTa5osWtNrgW0v1BSxWJcYAtrtedvudkJwbARhKWWB2ST1JJcfGTHch3YqCQTJ9R96LhUd6PQlOSSsrqMOaSAJ9UPiRqim1pMka/XXyCzn1xsbfe61im2c0qAMVMOAHmsmvJEG/MLaxEH72iAI8FnYmmPJbolMwDSIMBdt7F4aKbnHUmB3D95WExgMmPvkuhwVctpwLR6T1VQhsWSeqDOJYoG09Fn4kubBkFptBiZvcc9dCmfQLpvB181WXhp7RJ25+S0a+Tnst/DB5Lyf0gDpHJUYUUmhzHEXJOoGtx4ifRaDdJ227llcRxVFrgXBrnd09JnZOUVHYotvRDCUqYGVzGPA0IDLjqDF/PvKsxjaYgsa1pE/ltMxa3L70VT8Q0g5AwDfn6BDZmvdlBcGjSJ8ys7pUaU27YTVmBUMagAdYt4dFo4Bzg1ozTYl8xMkECSgK1IhzBOYDfvG/jFwieGBxc6TYAkxa0b8/3RFuxNaDvxDebfv8A3JIP3o5pKuTI4nJF2trKoKU2I5kek/VQXId9F1EKypLoBPiqmmN0ZRhwjqPn+ypEN0E8FmS2YltuUi/jaUdWYRFpnTv+/ggTVLTLbRz6ei02Vs8u0tI8Zt5raNVRhPuwOnRBuBGsgTeTz1ARtOlnBE6RtZNhTrI/f6oym0WIVRiRJm7hq+Sg1vJoE923RZOLcDd17fG6epi+yAdLT996ErYxukgrklHbo6lO0kzLxeIcD2SQNgFT+NqG089uUn6oh/ak6beX7IrhGFglx2sPn99SuiELM5TSAqeZ0Ziefh4JOoR15qxlQsJB0aSB8Ruh61abeaAsTbEx4j4LY4ZcG3L0nRYtJ3aA+9lt4QwPL5rXH2ZZWGkILG4YuFtUQaogmPvkqmYsHMPykb+q1lTMVZU9hyBnfOywsVgKhce832A6+C6dxaR3LIr4jN2W+u/7LLLFVs0xyaZm1gxtPKHgv3sbi+5AV/D6z2xU/TpbmeaHxVIT3BVU6sAtBsdiSFz3TOirRbXxx94XNsDFrRPdH3daeGquNJxGrjts0bAcz9FzzausafH6o7CcTIbBMc7coju/YoUhyhrRo+7f9k/RJBf96PX0SV2iOMvgyZCaFEKS5zoHc5TbUIVaaU7FQUMQIPNF4DFdktJ0Jju1I87+JWUSnlNSolwTR0OFxENN7ifD7sq3cTI0hY5qvfaC4jkJMeCT6FQCSx4HMtIHnFlfN1oj6SvZo18YXNHa0vG3PWfkmweYjMY7puesLKazkVc0vgqOUjp/4qpr9zfwwzNzWjT76KbcYAANR15/3WJQquY0iZnY6KqpiHfBbLI0cssafR0NZmeXD97WlCUqMzHxA+Kz6HESBGYoqhjSYS52Woxj3ZbhqZcZAsNZ+QR2GrWg7FZ9Gq4T2tTfcj5KynVLfL71VqVGORRfRosq5rN1TSGkN1J1+MBCnGlosBfl5IZmIkzvr/dPmZ8DUxFZuUjc6D5rKp18r5jmFGriLzcT496Aq1+0onOzTHjLce6XSN9kG8hM6qZ5JOqErJuzoiqJUqoaQYn19E1ct1G+oVCd11NlUL3iSq90ki2MvhOkEznJCIlyUqBKmgYpWvwHhoqkuf8AkaYj+Y6wTsBbzWQug9mca2DScYJJLZtMgAt77T49FtgUXNKRnkbUdCxHHg3s0WNDRvEA9wEKP/eqjmlj6eti6D2QbEkdAqK3AarHdgB4BtcDTYgkei38O+qWO961rTBgNM7HW5C6YLLJtSbX6aM5cEtbAmYChTDIaahe7KDObnJsQIEG/RV1sHSbXa1wlrx2WybOkbzoROvJFcCqgYamSQBcSbfrcAhqbKlPFAv7YqAta6NN4/0kAG28qnGPGLSW69dEpu3v5LMZSpMMfhi5oElzRYeZ1QfD8JSr0qmRuVweS0m8W7LecRMjr3InjVLEPJp0wPdkCT2R33JlU4FjqGFqmRmzOgi9wQ34gpSS5u1rfoa/p72ZWF4e99X3cEEHtz+kc+XdzW3+BpHE5Mlm0gdSJu0A23i3VV0/aEO921re29zQ7kO0AY59OUoxlM/i3O2FIA95dI/4lLHCFa3tDlKXvWjmmkh537UQTrewJXS4dn8ZwcxgJYLNvABjWBrN7bBZlThL21M5LcnvGnXYvFojW612M/8AkuP/ANY/5fslhg4vfz/sMjTWgf8AABtVoiWOmxvo0mDOquwmDp56hyizoAiwEDQaC8+SbhfEM5cx35mkx1En1Q4p1mvfUp5XHOQ6nMZhqCHEwD2vvRaLgqcVav8Axoin0yjib6RaHN7JzEFpEaDcbbLEqP3W17VUhkZUiHEhp6iCb84j1XM5rrkz6nRtjWrCSVWXqmVILE1Jmook3SKZIB86SjKSACFB6sVbggQmhWKACcoAZE4TAVakmmxzo5c9fvw5hDIjC46pT/w3ubebHeIny+XIIA0g7G0g0FrwHODW5gHS46NE7omlWx3aHui42/SOzYnQcwP/ABWOOIVYDfeOgFpA5FgaGkdQGtE8mhWHjGI/zn6g2MXGhstFlmumyeMfglXw2JZTyua9tNxAAMZSXdoAd+qtOAxgyk06o93ZsiMtxz01326IV3Fa5blNVxaIhu1oi3SB5Kx3G8SZmu8zrfXTXnoLKOT+SqQVUw/EDbLV0nYWOhtshDwnGFob7uoWmIbNpMuFp7yqa3G8QQWms8gtykE/p/l7rphx3E/5z9SddycxJ5mfiRom5N9sEkhsLwnEOuym45XFsjZzbkdCEU7DYumS5wqNMGTOzQ5177Brj4FCM4ziBMVXCTmN9SQASeZgDyRFDjWIj/Gf6fTqkm0OgmrgcY+zmVXQRY3vMC06qtuFxNN1m1GuIJtqQCAT1uQOclRPGsR/nP1nXfn3oQ8Wrh2YVHT2r79p2c3/AKu133RbuxUg1nDsSDnFOoCCe1EQQTOvcVLDYTG03S2m8FxMgiQ4gwZG5+h5FCH2gxV/477iDfaI+CY8exP+c+2l+sz36+Z5oUmugpE+N1MRLRXaW65REDWCVmBEYziFWrAqPLo0nqhkNtu2CVDp5UVMJDHCSSnTbKAK4Tq3IEkFcSZanyJJIIGyJZEkkANkT+7SSQAsiYtSSQA2RLIkkgCqtTUMiSSBiyK+gyxSSQBYWIV7DKdJAEciWRJJACyJZEkkALInhOkgBJwUkkAKUkkkAf/Z", "year"=>"1984", "score"=>0, "movie"=>{"title"=>"Gremlins", "year"=>"1984", "score"=>0, "imageUrl"=>"data:image/jpeg;base64,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"}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `create'
+  [1m[36mMovie Create (1.8ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "score", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Gremlins"], ["year", 1984], ["score", 0], ["imageUrl", "data:image/jpeg;base64,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"], ["created_at", "2020-03-17 17:52:30.444738"], ["updated_at", "2020-03-17 17:52:30.444738"]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `create'
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 2.5ms | Allocations: 2369)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 13:52:35 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (25.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 30ms (Views: 2.3ms | ActiveRecord: 25.4ms | Allocations: 1717)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 13:52:36 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.5ms | Allocations: 1660)
+
+
+Started POST "/api/v1/movies" for ::1 at 2020-03-17 13:53:12 -0400
+Processing by Api::V1::MoviesController#create as JSON
+  Parameters: {"title"=>"Working Girl", "imageUrl"=>"https://images-na.ssl-images-amazon.com/images/I/518APKxLvIL._AC_.jpg", "year"=>"1986", "score"=>0, "movie"=>{"title"=>"Working Girl", "year"=>"1986", "score"=>0, "imageUrl"=>"https://images-na.ssl-images-amazon.com/images/I/518APKxLvIL._AC_.jpg"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `create'
+  [1m[36mMovie Create (0.3ms)[0m  [1m[32mINSERT INTO "movies" ("title", "year", "score", "imageUrl", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Working Girl"], ["year", 1986], ["score", 0], ["imageUrl", "https://images-na.ssl-images-amazon.com/images/I/518APKxLvIL._AC_.jpg"], ["created_at", "2020-03-17 17:53:12.870947"], ["updated_at", "2020-03-17 17:53:12.870947"]]
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:9:in `create'
+Completed 200 OK in 24ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 2351)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 13:55:50 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (1.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 8ms (Views: 3.6ms | ActiveRecord: 1.6ms | Allocations: 1764)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 13:57:39 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.8ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 6ms (Views: 2.7ms | ActiveRecord: 0.8ms | Allocations: 1764)
+
+
+Started DELETE "/api/v1/movies/26" for ::1 at 2020-03-17 13:57:43 -0400
+  
+AbstractController::ActionNotFound (The action 'destroy' could not be found for Api::V1::MoviesController):
+  
+actionpack (6.0.2.1) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+activerecord (6.0.2.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 13:59:36 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 17ms (Views: 1.2ms | ActiveRecord: 9.5ms | Allocations: 6407)
+
+
+Started DELETE "/api/v1/movies/26" for ::1 at 2020-03-17 13:59:40 -0400
+Processing by Api::V1::MoviesController#destroy as */*
+  Parameters: {"id"=>"26"}
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 26], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:23:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:25:in `destroy'
+  [1m[36mMovie Destroy (0.7ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 26]]
+  ↳ app/controllers/api/v1/movies_controller.rb:25:in `destroy'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:25:in `destroy'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 2.2ms | Allocations: 2393)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 13:59:44 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (2.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 2.3ms | Allocations: 1660)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 14:00:17 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (1.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 8ms (Views: 2.6ms | ActiveRecord: 1.0ms | Allocations: 1660)
+
+
+Started DELETE "/api/v1/movies/24" for ::1 at 2020-03-17 14:00:27 -0400
+Processing by Api::V1::MoviesController#destroy as */*
+  Parameters: {"id"=>"24"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:23:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:25:in `destroy'
+  [1m[36mMovie Destroy (0.7ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 24]]
+  ↳ app/controllers/api/v1/movies_controller.rb:25:in `destroy'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:25:in `destroy'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 2247)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 14:05:01 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 15ms (Views: 0.9ms | ActiveRecord: 5.8ms | Allocations: 6098)
+
+
+Started DELETE "/api/v1/movies/25" for ::1 at 2020-03-17 14:05:05 -0400
+Processing by Api::V1::MoviesController#destroy as */*
+  Parameters: {"id"=>"25"}
+  [1m[36mMovie Load (0.4ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:23:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:25:in `destroy'
+  [1m[36mMovie Destroy (0.3ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 25]]
+  ↳ app/controllers/api/v1/movies_controller.rb:25:in `destroy'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:25:in `destroy'
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 1.4ms | Allocations: 2449)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 14:05:10 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (1.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 4ms (Views: 1.2ms | ActiveRecord: 1.2ms | Allocations: 1454)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 14:06:22 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (1.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 1.5ms | Allocations: 1454)
+
+
+Started DELETE "/api/v1/movies/21" for ::1 at 2020-03-17 14:06:29 -0400
+Processing by Api::V1::MoviesController#destroy as */*
+  Parameters: {"id"=>"21"}
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = $1 LIMIT $2[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/movies_controller.rb:23:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:25:in `destroy'
+  [1m[36mMovie Destroy (0.3ms)[0m  [1m[31mDELETE FROM "movies" WHERE "movies"."id" = $1[0m  [["id", 21]]
+  ↳ app/controllers/api/v1/movies_controller.rb:25:in `destroy'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:25:in `destroy'
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 1.5ms | Allocations: 2345)
+
+
+Started GET "/api/v1/movies" for ::1 at 2020-03-17 14:06:31 -0400
+Processing by Api::V1::MoviesController#index as */*
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/controllers/api/v1/movies_controller.rb:3:in `sort_by'
+Completed 200 OK in 5ms (Views: 1.4ms | ActiveRecord: 0.7ms | Allocations: 1351)
+
+
