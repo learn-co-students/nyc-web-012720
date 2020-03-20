@@ -6,7 +6,7 @@
 * [ ] describe the difference betwee `__proto__` and `prototype`
 * [ ] create a JavaScript class to wrap properties and functions
 * [ ] create instance and class methods using `static`
-
+* [ ] refactor app to pull out Movie, Adapter, and EventHandler objects
 
 ## Some Resources
 

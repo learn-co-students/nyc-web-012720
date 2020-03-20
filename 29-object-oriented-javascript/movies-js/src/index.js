@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function(){
   .then(renderMovies)
   
   EventHandler.clickHandler(adapter)
-  EventHandler.submitHandler(adapter)
+  EventHandler.submitHandler(adapter, renderMovie)
   Movie.createButton(document.getElementById("welcome-image"))
 })
 

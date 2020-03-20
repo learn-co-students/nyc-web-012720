@@ -20,7 +20,7 @@ class EventHandler {
     })
   }
 
-  static submitHandler(adapter){
+  static submitHandler(adapter, callback){
     document.addEventListener('submit', function(event){
       event.preventDefault()
       let form = event.target
@@ -32,7 +32,7 @@ class EventHandler {
       let movie = new Movie({ title, imageUrl, year, score })
       
       adapter.createResource(movie)
-      .then(renderMovie)
+      .then(callback)
   
       Movie.swapButton(form)
     })
