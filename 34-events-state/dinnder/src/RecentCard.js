@@ -1,10 +1,12 @@
 import React from 'react';
+import { RecentCardStyle } from './styled'
 
 const RecentCard = props => {
     return (
-        <div>
-            RecentCard
-        </div>
+        <RecentCardStyle>
+            <p>Sample RecentCard</p>
+            <div>{props.text}</div>
+        </RecentCardStyle>
     )
 }
 

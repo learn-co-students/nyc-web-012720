@@ -1,10 +1,14 @@
 import React from 'react';
+import { StyledFilter } from './styled';
 
 const FilterBar = props => {
     return (
-        <div>
-            FilterBar
-        </div>
+        <StyledFilter>
+            <p>Only Popular</p>
+            <p>Only NYC</p>
+            <p>By Price</p>
+            <p>By Category</p>
+        </StyledFilter>
     )
 }
 

@@ -3,7 +3,10 @@ import React from 'react';
 const Navbar = props => {
     return (
         <div>
-            Navbar
+            <div>🌮🥗DINNDER🌯🍱</div>
+            <p>while(true) learn()</p>
+            <hr />
+            
         </div>
     )
 }

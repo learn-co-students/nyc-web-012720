@@ -10,7 +10,7 @@ const App = props => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>while(true) learn() noooo refresh</h1>
+        
         <Navbar />
         <MainContainer />
       </header>

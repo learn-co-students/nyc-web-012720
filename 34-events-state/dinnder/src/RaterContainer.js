@@ -21,7 +21,8 @@ class RaterContainer extends React.Component {
 
         return (
             <div>
-                RaterContainer
+                <div>RaterContainer >> Count: </div>
+                <button>CLICK ME!</button>
                 <FilterBar />
                 {this.renderCards()}
                 {/* {[<div>Please</div>,<div>Excuse</div>, <div>My</div>, <div>Dear</div>, <div>Aunt</div>, <div>Sally!!</div>]} */}
