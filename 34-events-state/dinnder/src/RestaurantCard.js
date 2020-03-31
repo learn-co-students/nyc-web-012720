@@ -13,7 +13,7 @@ const restaurantImgs = [
 ]
 
 const RestaurantCard = props => {
-    console.log('card props: ', props)
+    // console.log('card props: ', props)
     return (
         <StyledCard>
            <span role="img" aria-label="no">🚫</span>

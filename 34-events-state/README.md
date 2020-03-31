@@ -14,6 +14,13 @@ State, Events, and Conditional Rendering
 
 ## Lecture Notes
 
+### Pre-Questions
+- WTF implicit returns?!?
+- When you making a class component what is the difference between React.Component vs Component? 
+      Depends on how you import but essentially the same 
+- What can be passed as props?
+      everyyythinnnng (strs, ints, bools, objs, arrs, funcs)
+
 --------
 
 ### Using Events
@@ -53,6 +60,8 @@ This is a key component of declarative programming in React: we tie our componen
 ### Deciding... should it be state? Where should state be?
 Ask three questions about each piece of data:
 
+startIndex for pagination on RaterContainer
+
 - Is it passed in from a parent via props? If so, it probably isn’t state.
 - Does it remain unchanged over time? If so, it probably isn’t state.
 - Can you compute it based on any other state or props in your component? If so, it isn’t state.
@@ -76,6 +85,15 @@ You can pass anything in `props`, even functions! We will often find ourselves p
 
 --------
 
+## PRE LECTURE PRATICE
+- conditionally render the next button 
+- add page numbers at the bottom
+- add the ability to click page numbers and navigate to that page 
+- click the 🚫 or heart on a restaurant and conditionally render only the symbol (no info)
+
+--------
+
+
 ## Extras
 
 - [React Events in Depth](https://www.youtube.com/watch?v=dRo_egw7tBc)
@@ -86,9 +104,3 @@ You can pass anything in `props`, even functions! We will often find ourselves p
 - [super() vs super(props)](https://overreacted.io/why-do-we-write-super-props/)
 
 --------
-
-## Poll Questions
-- Which of the following are valid ways to update state? (functional and object notation)
-- Method this.handleClick is defined with the event as the first argument. Which of the following will invoke this.handleClick correctly? 
-- Imagine I have a MainContainer component that renders a NewRestaurantForm component. MainContainer should render NewRestaurantForm conditionally, so it can be toggled open and closed. Which the following is the *best* way to implement this behavior? 
-- Consider this scenario: App renders both SearchBar and MainContainer components and MainContainer renders all of the RedditPost components. In what component should `state = { posts: [] }`, including the array of all post objects, live?
