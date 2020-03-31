@@ -73,3 +73,9 @@ Doing this creates a 1-way connection wherein user input changes `state`. This i
 ## Extras
 
 - [Reconciliation](https://reactjs.org/docs/reconciliation.html)
+
+
+## Poll Questions
+- Which are required for a fully controlled form?
+- Which ES6 technique allows us to create one handleChange method to update all of our inputs in state?
+- 
