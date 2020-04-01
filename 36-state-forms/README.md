@@ -12,8 +12,8 @@ State and Forms
 
 ### Features / Process
 - Write a Review form (stars rating and content)
-- Filters (by state, by rating, free wifi (checkbox))
-- Search
+- Filters (by state, by rating)
+- Search (by name)
 
 ## Lecture Notes
 
@@ -71,6 +71,8 @@ Doing this creates a 1-way connection wherein user input changes `state`. This i
 - If two sibling components need access to the same `state`, you will want to place the shared `state` in a parent container. Then you can pass down that `state` as well as any functions that need to modify the state as props to the two sibling components that need to display and/or change that data.
 
 ## Extras
+
+Another example of this style of value updating might be like credit card info or a phone number? Where the user input is being updated or formatted on the fly…? 
 
 - [Reconciliation](https://reactjs.org/docs/reconciliation.html)
 
