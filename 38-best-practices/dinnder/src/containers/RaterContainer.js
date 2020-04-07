@@ -1,6 +1,6 @@
 import React from 'react';
-import FilterBar from './FilterBar';
-import RestaurantCard from './RestaurantCard';
+import FilterBar from '../components/FilterBar';
+import RestaurantCard from '../components/RestaurantCard';
 
 
 class RaterContainer extends React.Component {

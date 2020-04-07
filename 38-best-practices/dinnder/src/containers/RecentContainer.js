@@ -1,6 +1,6 @@
 import React from 'react';
-import RecentCard from './RecentCard';
-import { FlexContHoriz } from './styled';
+import RecentCard from '../components/RecentCard';
+import { FlexContHoriz } from '../styled';
 
 const RecentContainer = props => {
     return (

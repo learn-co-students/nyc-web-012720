@@ -1,5 +1,5 @@
 import React from 'react';
-import { RecentCardStyle } from './styled'
+import { RecentCardStyle } from '../styled'
 
 const RecentCard = props => {
     return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledCard } from './styled';
+import { StyledCard } from '../styled';
 import ReviewForm from './ReviewForm';
 const restaurantImgs = [
     "https://www.singleplatform.com/wp-content/uploads/2018/12/5-Tips-for-Improving-Restaurant-Ambiance.jpg",
@@ -16,12 +16,33 @@ const restaurantImgs = [
 class RestaurantCard extends React.Component {
     state = {
         dislike: false,
-        like: false
+        like: false,
+        count: 0
     }
 
     setSelection = (type) => {
-        this.setState({ [type]: !this.state[type] }) 
+        this.setState({ [type]: !this.state[type] }, () => {
+            console.log('this.state', this.state) /// setState callback example
+        }) 
     }
+
+    addCount = () => {
+        this.setState({ count: this.state.count + 1 })
+        // this.setState({ count: this.state.count + 1 })
+        // this.setState({ count: this.state.count + 1 })
+        this.setState( prevState => ({count: prevState.count + 1}) )
+        this.setState( prevState => {
+            return {
+                count: prevState.count + 1
+            }    
+        })
+        this.setState( prevState => {
+            return {
+                count: prevState.count + 1
+            }
+        })
+    }
+
 
     render(){
         const { name, address, city, state, postal_code, id, reviews } = this.props;
@@ -30,6 +51,7 @@ class RestaurantCard extends React.Component {
 
         return (
             <StyledCard>
+                <div onClick={this.addCount}>Count: {this.state.count}</div>
                 { like ? null : <span onClick={() => this.setSelection('dislike')} role="img" aria-label="no">🚫</span>}
                 <div className="restaurant-info">
                     <div>{name}</div>

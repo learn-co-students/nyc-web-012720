@@ -8,26 +8,27 @@ React Best Practices
 ## Objectives
 
 - Opinions
-  - [ ] Code Organization/file structure 
+  - [X] Code Organization/file structure 
         - Folders: Components & Containers, orrrr organized by resource
-  - [ ] Presentational vs Container components
+  - [X] Presentational vs Container components
 
 - Optimizations:
-  - [ ] Functional vs Class Components (required for state & lifecycle methods)
-  - [ ] Fragments
+  - [X] Functional vs Class Components (required for state & lifecycle methods) ===> until Hooks
+  - [X] Fragments ===> it allows you to group siblings without adding any intermediary nodes in the DOM tree (ie a div)
 
 - Best Practices:
-  - [ ] Functional setState
-  - [ ] "then" callback for setState
-  - [ ] Callbacks (avoid useless wrapping)
+  - [X] "then" callback for setState
+  - [X] Callbacks (avoid useless wrapping)
+  - [X] Functional setState
 
 - JS tricks/bugs often seen in React:
-  - [ ] Arrow functions returning objects () => ({ })
+  - [X] Arrow functions returning objects () => ({ })
   - [ ] Destructuring  ====> let { likes, name } = this.props
   - [ ] Spread (w/ prepend and append) this.setState({ messages: [...this.state.messages, 'newmessage']})
   - [ ] Objects with the same key/value name ===> let myPerson = {firstName, lastName}
   - [ ] constructor vs. ES7 instance variables ===> ie state = {}
   - [ ] dynamic keys ==>  { [variable]: "as_key" } 
+  - fetchy bois...? like curly bois but nah...?
 
 - Too Involved for RN
     - [ ] HOCs Magic magic magic!

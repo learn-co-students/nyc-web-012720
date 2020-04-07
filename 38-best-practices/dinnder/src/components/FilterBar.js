@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledFilter } from './styled';
+import { StyledFilter } from '../styled';
 
 const FilterBar = props => {
     return (

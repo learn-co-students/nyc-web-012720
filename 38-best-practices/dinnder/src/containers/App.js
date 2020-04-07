@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
-import Navbar from './Navbar';
+import '../App.css';
+import Navbar from '../components/Navbar';
 import MainContainer from './MainContainer';
 
 // named export

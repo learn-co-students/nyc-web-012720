@@ -6,7 +6,7 @@ import './index.css';
 // import { App as MyApp, someFunction } from './App'
 
 // default import
-import App from './App';
+import App from './containers/App';
 
 ReactDOM.render(<App />,
   document.getElementById('root')

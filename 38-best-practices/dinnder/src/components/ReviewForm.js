@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledReview } from './styled'
+import { StyledReview } from '../styled'
 
 const initialState = {
     content: "",
