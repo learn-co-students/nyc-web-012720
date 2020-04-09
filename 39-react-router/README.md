@@ -3,13 +3,13 @@ React Router
 
 ## SWBAT
 
-- [ ] Create a multi-page SPA
-- [ ] Explain the advantages of using React Router
-- [ ] Utilize the most common `react-router` components to build a SPA: `BrowserRouter`, `Route`, `Switch`, `Link`, and `NavLink`
-- [ ] Use `push` and `history` to navigate pages
-- [ ] Use hooks like `useHistory` and `useParams` to access the state of the router
-- [ ] Create dynamic routes and use `params`
-- [ ] Make the distinction between `state` being one _Single Source of Truth_ and `react-router` being another _Single Source of Truth_
+- [X] Create a multi-page SPA
+- [X] Explain the advantages of using React Router
+- [X] Utilize the most common `react-router` components to build a SPA: `BrowserRouter`, `Route`, `Switch`, `Link`, and `NavLink`
+- [X] Use `push` and `history` to navigate pages
+- [X] Use hooks like `useHistory` to access the state of the router
+- [X] Create dynamic routes and use `params`
+- [X] Make the distinction between `state` being one _Single Source of Truth_ and `react-router` being another _Single Source of Truth_
 
 
 
@@ -20,11 +20,12 @@ React Router
 
 ### Features
 - [MovieApp Wireframe and Component Hierarchy](https://awwapp.com/b/ui0yjws5o/)
-- [ ] Route for login
-- [ ] Route for signup
-- [ ] Route for home page
+- [ ] Route for login     => /login
+- [ ] Route for signup   => /signup
+- [ ] Route for home page    => /
+- [ ] Route for movies page    => /movies
 - [ ] Enable navbar to move between home/login/signup
-- [ ] Route for individual movie
+- [ ] Route for individual movie     => /movies/:id
 - [ ] Use dynamic route to fetch a display single movie view
 
 ## Lecture Notes
@@ -33,11 +34,17 @@ React Router
 ## SPAs
 
 ### Benefits
-
+- (React esp) Easy to navigate your file structure - where which code is, etc. 
+- Speed!!! Only neeed the initial load
 
 
 ### Challenges 
-
+- If the initial load is slow... bad UX 
+- No separate page for different views 
+- Only one URL EVER
+    - No bookmarking 
+    - No sharing
+    - No navigation
 
 
 ## Dynamic Routing from Rails

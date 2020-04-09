@@ -15,11 +15,18 @@ class Login extends React.Component{
 
   handleSubmit = (e) => {
     e.preventDefault()
+    // redirect user to /movies
+    if(this.state.password === '123456'){
+      this.props.history.push('/history')
+    } else {
+      alert(' ya dun goofed! ')
+    }
 
   }
 
 
   render(){
+    console.log('innnnn login:', this.props)
     return (
       <div className="login">
         <form className="auth-form" onSubmit={this.handleSubmit}>

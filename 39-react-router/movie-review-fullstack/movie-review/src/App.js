@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { Route, Switch } from 'react-router-dom';
 import NavBar from './Components/NavBar';
 import Login from './Components/Login';
 import Signup from './Components/Signup';
@@ -25,8 +26,13 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <NavBar/> 
-        <MovieContainer movies={this.state.movies}/>
+        <NavBar /> 
+        <Switch>
+          <Route path="/signup" component={Signup} />
+          <Route path="/login" component={Login}/>
+          <Route path="/movies" render={routerProps => <MovieContainer {...routerProps} movies={this.state.movies} />} />
+          <Route exact path="/" render={() => <div>HOME SWEET HOME</div>} />
+        </Switch>
       </div>
     )
   }
