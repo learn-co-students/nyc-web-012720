@@ -1,16 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { fetchMalady } from '../helpers/requests';
 import {  StyledPage, ImageHider } from '../helpers/styles'
 
 const MaladyPage = props => {
-    let malady, showPhoto;
-    // stateful things ---- 
+    /**
+     * this replaces class component and ...
+     * state = { showPhoto: false, malady: null }
+     */
 
-    //malady object after fetching from the backend 
-    // fetchMalady(props.match.params.id).then(remedy => {
+    // [ getter, setter ]
+    let [showPhoto, setShowPhoto] = useState(false); // [this.state.showPhoto, this.setState({ showPhoto: ....? })]
+    let [malady, setMalady] = useState(null);
 
-    // showPhoto
-    // toggle to hide or show photo, initially set to false
+    useEffect(() => {
+        console.log('inside use effect')
+        fetchMalady(props.match.params.id).then(malady => {
+            setMalady(malady)
+            // this.setState({ malady })
+        })
+
+    }, []) // dependency array
+    // equivalent of componentDidMount ====> []
+
+    useEffect(() => {
+        console.log('inside 2nd use effect')
+        if(showPhoto){
+            alert('ya sure tho?')
+        }
+    }, [ showPhoto ])
+
+    // parking lot ===> when do we need something in that array 
 
     const displayInfo = () => (
         <div className="left-panel">
@@ -25,8 +44,8 @@ const MaladyPage = props => {
     )
 
     const displayImage = () => (
-        <div className="right-panel">
-            {malady && showPhoto 
+        <div className="right-panel" onClick={() => setShowPhoto(!showPhoto)}>
+            { showPhoto 
                 ? <img src={malady.image} alt={malady.name}/>
                 : <ImageHider>Click to View Image</ImageHider>
             }
@@ -34,7 +53,7 @@ const MaladyPage = props => {
     )
 
     return (
-       malady
+       malady //malady
         ? (
             <StyledPage>
                 <h1>{malady.name}</h1>
