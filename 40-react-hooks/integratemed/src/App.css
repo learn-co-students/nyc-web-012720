@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+
+h1, h3, h5, a, li {
+  text-transform: capitalize;
+}
+
+li { 
+  width: fit-content;
+}
