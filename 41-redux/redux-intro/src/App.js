@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './App.css';
-import { likeCreator, dislikeCreator, toggleCreator, changeCreator } from './actionCreators'
+import * as actions from './actionCreators'
 
 //  function random_rgba() {
 //   var o = Math.round, r = Math.random, s = 255;
@@ -92,11 +92,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   // console.log(arg2)
   return {
-    like: () => { dispatch(likeCreator()) },
-    dislike: () => { dispatch(dislikeCreator()) },
-    toggleDark: () => { dispatch(toggleCreator()) },
-    addText: () => { dispatch({type: 'ADD_TEXT'}) },
-    handleChange: (value) => { dispatch(changeCreator(value)) }
+    like: () => { dispatch(actions.likeCreator()) },
+    dislike: () => { dispatch(actions.dislikeCreator()) },
+    toggleDark: () => { dispatch(actions.toggleCreator()) },
+    addText: () => { dispatch(actions.addTextCreator()) },
+    handleChange: (value) => { dispatch(actions.handleChangeCreator(value)) }
   }
 }
 
