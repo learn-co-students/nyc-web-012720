@@ -4,8 +4,8 @@ Intro to Redux
 ## SWBATs
 
 ### Message Passing
-- [ ] Explain the pattern / technique of message passing
-- [ ] Refactor a component's behavior to use message passing 
+- [X] Explain the pattern / technique of message passing
+- [X] Refactor a component's behavior to use message passing 
 
 ### Redux
 - [ ] Install the redux library so it can be used in a project.
