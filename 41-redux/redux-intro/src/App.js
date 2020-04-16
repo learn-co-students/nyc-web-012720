@@ -1,13 +1,10 @@
 import React from 'react';
 import './App.css';
 
-
- function random_rgba() {
-  var o = Math.round, r = Math.random, s = 255;
-  return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
-}
-
-
+//  function random_rgba() {
+//   var o = Math.round, r = Math.random, s = 255;
+//   return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
+// }
 
 class App extends React.Component {
 
@@ -18,46 +15,56 @@ class App extends React.Component {
     thangs: []
   }
 
-  like = () => {
-    this.setState({ likes: this.state.likes + 1 })
+  dispatch = (type, payload) => {
+    // 2. actually setting the state 
+    let newState = this.reducer(type, payload)
+    this.setState(newState)
   }
 
-  dislike = () => {
-    this.setState({ likes: this.state.likes - 1 })
+  reducer = (type, payload) => {
+    // 1. calculating the new state
+    switch(type){
+      case 'LIKE':
+        return { ...this.state, likes: this.state.likes + 1 };
+      case 'DISLIKE':
+        return {...this.state, likes: this.state.likes - 1 }
+      case 'TOGGLE_DARK':
+        return {...this.state, darkMode: !this.state.darkMode }
+      case 'HANDLE_CHANGE':
+        return {...this.state, [payload.target.name]: payload.target.value }
+      case 'ADD_TEXT':
+        return {...this.state, 
+          text: '',
+          thangs: [this.state.text, ...this.state.thangs]
+        }
+      default:
+        return {...this.state};
+    }
   }
 
-  toggle = () => {
-    this.setState({ darkMode: !this.state.darkMode })
-  }
-
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value })
-
-  }
-
-  addText = () => {
-    this.setState({ 
-      text: '',
-      thangs: [this.state.text, ...this.state.thangs]
-    })
-  }
+  // we only need one function now!! 
+  // like = () => {  }
+  // dislike = () => {  }
+  // toggle = () => { }
+  // handleChange = (event) => {   }
+  // addText = () => {}
 
   render(){
     return (
       <div className={"App" + (this.state.darkMode ? " dark" : "")}>
-        <button onClick={this.toggle}>Dark mode</button>
+        <button onClick={() => this.dispatch('TOGGLE_DARK')}>Dark mode</button>
         <h3>{this.state.text}</h3>
         <input 
           name="text" 
           value={this.state.text} 
-          onChange={(event) => this.handleChange(event)}/>
-        <button onClick={this.addText}>Add!</button>
+          onChange={event => this.dispatch('HANDLE_CHANGE', event)}/>
+        <button onClick={() => this.dispatch('ADD_TEXT')}>Add!</button>
 
         <h4>{this.state.likes} likes</h4>
-        <button onClick={this.dislike}>
+        <button onClick={() => this.dispatch('DISLIKE')}>
           Dislike <span role="img" aria-label="thumbs down">👎</span>
         </button>
-        <button onClick={this.like}>
+        <button onClick={() => this.dispatch('LIKE')}>
           Like<span role="img" aria-label="thumbs up">👍</span>
         </button>
         {
