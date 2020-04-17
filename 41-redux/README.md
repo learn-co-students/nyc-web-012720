@@ -8,20 +8,20 @@ Intro to Redux
 - [X] Refactor a component's behavior to use message passing 
 
 ### Redux
-- [ ] Install the redux library so it can be used in a project.
-- [ ] Create a `store` in redux with some default `state`.
-- [ ] Create a `reducer` to change `state` based on an `action.type`.
-- [ ] Use `dispatch` to send an `action` to the `store` to make changes to `state`.
-- [ ] Read `state` in the `store`.
+- [X] Install the redux library so it can be used in a project.
+- [X] Create a `store` in redux with some default `state`.
+- [X] Create a `reducer` to change `state` based on an `action.type`.
+- [X] Use `dispatch` to send an `action` to the `store` to make changes to `state`.
+- [X] Read `state` in the `store`.
 
 ### React Redux
-- [ ] Install the `react-redux` library so it can be used in a project.
-- [ ] Make the `store` available to their application by using the `Provider` component.
-- [ ] Use `connect` to give components the ability to listen for changes to the `store`.
-- [ ] Use `dispatch` in a React component.
-- [ ] Use `mapStateToProps` to read data from the `state` in the Redux `store`.
-- [ ] Use `mapDispatchToProps`
-- [ ] Rethinking in React with Redux
+- [X] Install the `react-redux` library so it can be used in a project.
+- [X] Make the `store` available to their application by using the `Provider` component.
+- [X] Use `connect` to give components the ability to listen for changes to the `store`.
+- [X] Use `dispatch` in a React component.
+- [X] Use `mapStateToProps` to read data from the `state` in the Redux `store`.
+- [X] Use `mapDispatchToProps`
+- [X] Rethinking in React with Redux
 
 ### Redux-Thunk
 - [ ] Install the `redux-thunk` library
