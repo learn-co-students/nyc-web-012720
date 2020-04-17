@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react'
+import React, { Fragment } from 'react';
+import { connect } from 'react-redux';
 
 const Table = (props) => {
 
@@ -22,4 +23,15 @@ const Table = (props) => {
   )
 }
 
-export default Table
+// map state to props 
+// when you need values from reducer state to be displayed in your app 
+const msp = state => {
+  return {
+    budget: state.budget,
+    eatenSushis: state.eatenSushis
+  }
+}
+
+export default connect(msp)(Table);
+// need just mdp??
+// connect(() => {}, mdp)
